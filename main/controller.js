@@ -1,18 +1,18 @@
 'use strict'
 var gCtx
+var gKeyWordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 var gElCanvas
 let gSelectedImg = null
 var gElImg
+
 
 // search
 $('#searchWord').change('keydown', onSearch)
 $('#searchBtn').click('input', onSearch)
 $('#addText').change('keydown', function (event) {
     let text = $(this).val()
-    addText(text)
+    onAddText(text)
 })
-
-var gKeyWordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 
 
@@ -24,24 +24,22 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
-
+    
 }
 
-function addText(text) {
-    const line = {
-        pos: { x: (gElCanvas.width * 0.5), y: (gElCanvas.height * 0.5) },
-        txt: text,
-        size: 20,
-        color: 'pink',
-        isDrag: false,
+
+function onAddText(text) {
+    if (!gMemes || !gMemes.lines) {
+        console.error('gMemes is not defined or lines array is missing!');
+        return;
     }
-    gMemes.lines.push(line)
+    const line = addText(text)
     gMemes.selectedLineIdx = gMemes.lines.length - 1
-    console.log("gmemes",line.txt)
-
     drawText(line.txt)
+    
 
 }
+
 
 function drawText(txt, x = gElCanvas.width * 0.5, y = gElCanvas.height * 0.5, color) {
     gCtx.lineWidth = 2
@@ -54,41 +52,32 @@ function drawText(txt, x = gElCanvas.width * 0.5, y = gElCanvas.height * 0.5, co
     gCtx.strokeText(txt, x, y)
 }
 
-function getLine(selectedLineIdx =0) {
-    // if (selectedLineIdx < 0 ) {
-    //     return
-    // }
-    const line = gMemes.lines[selectedLineIdx]
-    return line
-
-
-}
 
 
 
 
 function openGenerator(imgID) {
     gSelectedImg = gImgs.findIndex(img => img.id === imgID)
+    
     // document.querySelector('.generator-container').classList.remove('hide')
     // document.body.classList.toggle('generator-screen');
-
     onCreateMeme(gImgs[gSelectedImg])
+    
 }
 
 function onCreateMeme(img) {
-    // createMeme(img)
     const elImg = new Image()
     elImg.src = img.url
+    const id = gImgs[gSelectedImg].id
+    console.log(id)
+    createGMeme(id)
     coverCanvasWithImg(elImg)
 
 }
 
-
-
 function onSearch(ev) {
     var searchWord = $('#searchWord').val().toLowerCase()
     console.log(searchWord)
-
 }
 
 
@@ -107,108 +96,118 @@ function renderGallery() {
 
 
 
+// ====================================================================
+
+// function setElementDrag(isDrag) {
+//     const line = getLine()
+//     line.isDrag = isDrag
+// }
+
+// function renderCanvas() {
+//     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
+//     renderElements()
+// }
+
+// function renderElements() {
+//     //* Get the props we need from the circle
+//     const { pos, color, size } = getLine()
+//     //* Draw the circle
+//     drawText(txt, pos.x, pos.y, size, color)
+// }
+
+// function getLine() {
+//     if (gMemes.selectedLineIdx < 0  || !gMemes) {
+//         return
+//     }
+//     const line = gMemes.lines[selectedLineIdx]
+//     return line
 
 
-function setElementDrag(isDrag) {
-    const line = getLine()
-    line.isDrag = isDrag
-}
+// }
 
-function renderCanvas() {
-    gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
-    renderElements()
-}
+// function getEvPos(ev) {
+//     const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
-function renderElements() {
-    //* Get the props we need from the circle
-    const { pos, color, size } = getLine()
-    //* Draw the circle
-    drawText(txt, pos.x, pos.y, size, color)
-}
+//     let pos = {
+//         x: ev.offsetX,
+//         y: ev.offsetY,
+//     }
 
-function getEvPos(ev) {
-    const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
+//     if (TOUCH_EVS.includes(ev.type)) {
+//         ev.preventDefault()
 
-    let pos = {
-        x: ev.offsetX,
-        y: ev.offsetY,
-    }
-
-    if (TOUCH_EVS.includes(ev.type)) {
-        ev.preventDefault()
-
-        ev = ev.changedTouches[0]
+//         ev = ev.changedTouches[0]
 
 
-        pos = {
-            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+//         pos = {
+//             x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+//             y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
 
 
-        }
-    }
-    return pos
-}
-
-
-
-
-
-
-function onMove(ev) {
-    const line = getLine()
-    const { isDrag } = getLine()
-    if (!isDrag) return
-
-    const pos = getEvPos(ev)
-
-    const dx = pos.x - line.pos.x
-    const dy = pos.y - line.pos.y
-    moveLine(dx, dy)
-    line.pos = pos
-    renderCanvas()
-
-}
-
-function moveLine(dx, dy) {
-    const line = getLine()
-    line.pos.x += dx
-    line.pos.y += dy
-}
-
-function onDown(ev) {
-    const pos = getEvPos(ev)
-
-    if (!isElementClicked(pos)) return
-    setElementDrag(true)
-    line.pos = pos
-    document.body.style.cursor = 'grabbing'
-
-}
-
-
-function onUp() {
-    setElementDrag(false)
-    document.body.style.cursor = 'grab'
-}
+//         }
+//     }
+//     return pos
+// }
 
 
 
-function isElementClicked(pos){
-    const line = getLine()
-    const textWidth = gCtx.measureText(line.txt).width
-    const textHeight = line.size 
 
-    if (
-        pos.x >= line.pos.x - textWidth / 2 &&
-        pos.x <= line.pos.x + textWidth / 2 &&
-        pos.y >= line.pos.y - textHeight / 2 &&
-        pos.y <= line.pos.y + textHeight / 2
-    ) {
-        return true
-    }
-    return false
-}
+
+
+// function onMove(ev) {
+//     const line = getLine()
+//     const { isDrag } = getLine()
+//     if (!isDrag) return
+
+//     const pos = getEvPos(ev)
+
+//     const dx = pos.x - line.pos.x
+//     const dy = pos.y - line.pos.y
+//     moveLine(dx, dy)
+//     line.pos = pos
+//     renderCanvas()
+
+// }
+
+// function moveLine(dx, dy) {
+//     const line = getLine()
+//     line.pos.x += dx
+//     line.pos.y += dy
+// }
+
+// function onDown(ev) {
+//     const pos = getEvPos(ev)
+
+//     if (!isElementClicked(pos)) return
+//     setElementDrag(true)
+//     line.pos = pos
+//     document.body.style.cursor = 'grabbing'
+
+// }
+
+
+// function onUp() {
+//     setElementDrag(false)
+//     document.body.style.cursor = 'grab'
+// }
+
+
+
+// function isElementClicked(pos){
+//     const line = getLine()
+//     const textWidth = gCtx.measureText(line.txt).width
+//     const textHeight = line.size 
+
+//     if (
+//         pos.x >= line.pos.x - textWidth / 2 &&
+//         pos.x <= line.pos.x + textWidth / 2 &&
+//         pos.y >= line.pos.y - textHeight / 2 &&
+//         pos.y <= line.pos.y + textHeight / 2
+//     ) {
+//         return true
+//     }
+//     return false
+// }
 
 
 

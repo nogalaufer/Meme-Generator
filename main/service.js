@@ -1,5 +1,14 @@
 'use strict'
 var KEY_STORAGE = 'key-storage'
+
+var gMemes = {
+    selectedImgId: 0,
+    selectedLineIdx: 0,
+    lines: [],
+}
+
+
+
 var gImgs = [
     { id: 1, url: 'main/service/meme-imgs/meme-imgs-(square)/1.jpg', keywords: ['donald trump', 'politician', 'United States', 'us'] },
     { id: 2, url: 'main/service/meme-imgs/meme-imgs-(square)/2.jpg', keywords: ['dog', 'puppy', 'cute', 'baby'] },
@@ -21,6 +30,26 @@ var gImgs = [
     { id: 18, url: 'main/service/meme-imgs/meme-imgs-(square)/18.jpg', keywords: ['cartoon', 'toy story', 'woodie', 'bazz', 'pixar', 'hand'] },
 ]
 
+
+function addText(text) {
+    const line = {
+        pos: { x: (gElCanvas.width * 0.5), y: (gElCanvas.height * 0.5) },
+        txt: text,
+        size: 20,
+        color: 'pink',
+        isDrag: false,
+    }
+    gMemes.lines.push(line)
+    return line
+}
+
+function createGMeme(id) {
+    gMemes.selectedImgId =id
+}
+
+function setSelectedMeme(index) {
+    gMemes.lines[selectedLineIdx] = index
+}
 
 function getCurrMeme(imgID) {
     return gMemes.find(meme => meme.selectedImgId === imgID)
