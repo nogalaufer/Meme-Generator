@@ -10,7 +10,11 @@
 /* COMPONENTS */
 /* הדר, מאין, פוטר, עמודים */
 
+/* gallery */
 
+@import url(gallery/gallery.css);
+/* generator */
+@import url(generator/generator.css);
 
 
 /* MEDIA QUERIES */

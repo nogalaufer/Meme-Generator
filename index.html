@@ -7,37 +7,52 @@
     <title>Sprint2</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<header class="header-container">
-    <h1> MEMEs</h1>
-    <input type="text" id="searchWord" placeholder="Search MEME" required>
-    <button id="searchBtn">🔍</button>
 
+<body class="" onload="onInit()">
 
-<main class="mian-container">
-<div class="Generator">
-
-</div>
-
-</main>
-
-</header>
-
-
-<body onload="onInit()">
-    <main class="mian-container">
+    <header class="header-container">
+        <h1> MEMEs</h1>
+        <input type="text" id="searchWord" placeholder="Search MEME" required>
+        <button id="searchBtn">🔍</button>
+    </header>
+<!-- Gallery -->
+    <main class="main-container">
         <div class="gallery-container">
-
-
-
     </main>
 
 
 
+
+    <!-- Generator -->
+    <section class="generator">
+        <div class="generator-container">
+            <div class="canvas-container"></div>
+            <canvas width="400" height="400"
+            onmousedown="onDown(event)"
+            ontouchstart="onDown(event)"
+            onmouseup="onUp()" 
+            ontouchend="onUp()" 
+            onmousemove="onMove(event)"
+            ontouchmove="onMove(event)"></canvas>
+            
+            <input type="text" id="addText" placeholder="add text" required>
+
+        </div>
+    </section >
+
+
+
+
+
+
+
+
     <script src="lib/jquery/jquery.js"></script>
-    <script src="/main/controller.js"></script>
+    <script src="/main/storage.js"></script>
     <script src="/main/service.js"></script>
     <script src="/main/service/gallery.js"></script>
-    <script src="/main/storage.js"></script>
+    <script src="/main/generator/generatorControler.js"></script>
+    <script src="/main/controller.js"></script>
 </body>
 
 </html>

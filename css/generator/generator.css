@@ -1,0 +1,38 @@
+.generator-screen {
+    /* display: block; */
+    inset: 1;
+    position: fixed;
+    background-color: rgba(15, 13, 13, 0.233);
+    cursor: pointer;
+    /* opacity: 0; */
+    /* pointer-events: none; */
+    transition: opacity 0.6s; 
+}
+
+.hide {
+    display: none;
+
+}
+
+/* .generator-container {
+    display: block;
+    height: 400px;
+    width: 400px;
+    background-color: darkcyan;
+    text-align: center;
+    color: white;
+    padding-top: 150px; /* למרכז את התוכן */
+/* } */
+
+.canvas-container {
+    width: 80vw;
+    margin: 10px auto;
+    background-color: brown;
+    border: 1px solid black;
+}
+
+canvas {
+    background-color: white;
+    border: 1px solid black;
+   
+}

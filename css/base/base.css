@@ -1,12 +1,9 @@
 body {
     text-align: center;
+    font-size: 1rem;
 }
 
 .mian-container {
     display: flex;
 }
-.gallery-container > img  {
-    height: 300px;
-    width: 300px;
-    margin: 10px;
-}
+
