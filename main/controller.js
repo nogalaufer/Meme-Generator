@@ -31,29 +31,27 @@ function onInit() {
 
 function onAddText(text) {
     if (!gMemes || !gMemes.lines) {
-        // console.error('gMemes is not defined or lines array is missing!')
         return
     }
     const line = addText(text)
+
+    console.log(line,'ffff')
     gMemes.selectedLineIdx = gMemes.lines.length - 1
-    drawText(line.txt, line.pos.x, line.pos.y, line.color, line.size)
+    drawText(line.txt, line.pos.x, line.pos.y,line.size, line.color, )
 
 }
 
 
-function drawText(txt, x = gElCanvas.width * 0.5, y = gElCanvas.height * 0.5, size = 50, color) {
+function drawText(txt, x = gElCanvas.width * 0.5, y = gElCanvas.height * 0.5, size = 5, color) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'white'
     gCtx.fillStyle = color
-    gCtx.font = `${size}px Arial`
+    gCtx.font = `${size}em Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
     gCtx.fillText(txt, x, y)
     gCtx.strokeText(txt, x, y)
 }
-
-
-
 
 
 function openGenerator(imgID) {
@@ -115,6 +113,8 @@ function renderGalleryByFilter(imgByFilter) {
 // ====================================================================
 
 
+// canvas - elements
+
 
 function renderCanvas() {
     coverCanvasWithImg(gElImg)
@@ -122,15 +122,12 @@ function renderCanvas() {
     renderElements()
 }
 
-
-
 function renderElements() {
     const line = getLine()
     if (!line) return 
     drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color)
     
 }
-
 
 function getEvPos(ev) {
     const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
@@ -155,9 +152,6 @@ function getEvPos(ev) {
     }
     return pos
 }
-
-
-
 
 function onDown(ev) {
     const pos = getEvPos(ev)
@@ -197,13 +191,10 @@ function onMove(ev) {
 
 }
 
-
 function onUp() {
     setElementDrag(false)
     document.body.style.cursor = 'grab'
 }
-
-
 
 function isElementClicked(pos) {
     const line = getLine()
@@ -212,13 +203,14 @@ function isElementClicked(pos) {
     const textWidth = gCtx.measureText(line.txt).width
     const textHeight = line.size
 
-    const isXInside = pos.x >= line.pos.x - textWidth / 2 && pos.x <= line.pos.x + textWidth / 2
-    const isYInside = pos.y >= line.pos.y - textHeight / 2 && pos.y <= line.pos.y + textHeight / 2
+    const padding = 20
+
+
+    const isXInside = pos.x >= line.pos.x - textWidth / 2 && pos.x <= line.pos.x + textWidth / 2 + padding
+    const isYInside = pos.y >= line.pos.y - textHeight / 2 && pos.y <= line.pos.y + textHeight / 2 +padding
     return isXInside && isYInside
 
 }
-
-
 
 
 // Canvas functions 

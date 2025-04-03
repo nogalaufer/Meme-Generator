@@ -33,7 +33,7 @@ function addText(text) {
     const line = {
         pos: { x: gElCanvas.width * 0.5, y:   gElCanvas.height * 0.5 },
         txt: text,
-        size: 50,
+        size:5,
         color: 'black',
         isDrag: false,
     }
