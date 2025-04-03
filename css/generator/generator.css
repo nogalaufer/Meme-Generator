@@ -27,7 +27,7 @@
 .canvas-container {
     width: 80vw;
     margin: 10px auto;
-    background-color: brown;
+    /* background-color: brown; */
     border: 1px solid black;
 }
 

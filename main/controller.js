@@ -5,8 +5,9 @@ let gSelectedImg = null
 var gElImg
 let sizeDiff =0
 
-// ==============================================================================
+// =======================================================================
 //  JQuery bottons - HTML
+// =======================================================================
 
 $('#searchWord').change('keydown', onSearch)
 $('#searchBtn').click('input', onSearch)
@@ -23,6 +24,7 @@ $('#pickColor').change(pickColor)
 $('.sizePlus').click(function() {
     onSize(+$(this).data('change'))
 })
+
 $('.sizeMinus').click(function() {
     onSize(+$(this).data('change'))
 })
@@ -33,6 +35,7 @@ $('#backBtn').click('input', closeGenerator)
 
 // =======================================================================
 // on general
+// =======================================================================
 
 function onInit() {
     renderGallery()
@@ -112,6 +115,7 @@ function renderGalleryByFilter(imgByFilter) {
 
 // ====================================================================
 //generator - edit MEME 
+// ====================================================================
 
 function onDeleteLine(selectedLineIdx){
     deleteLine(selectedLineIdx)
@@ -174,6 +178,7 @@ function onSwich(){
 
 // ====================================================================
 // canvas - elements
+// ====================================================================
 
 
 function renderCanvas() {
@@ -281,6 +286,7 @@ function isElementClicked(pos) {
 }
 // ====================================================================
 // Canvas Init 
+// ====================================================================
 
 function resizeCanvas() {
     if (!gElImg) return

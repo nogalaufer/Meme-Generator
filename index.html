@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprint2</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="" onload="onInit()">
@@ -16,7 +16,7 @@
         <button id="searchBtn">🔍</button>
         <button id="clearBtn">clear</button>
     </header>
-<!-- Gallery -->
+    <!-- Gallery -->
     <main class="main-container">
         <div class="gallery-container ">
     </main>
@@ -27,26 +27,23 @@
     <!-- Generator -->
     <section class="generator">
         <div class="generator-container">
-            <div class="canvas-container"></div>
             <button id="backBtn">X</button>
-            <canvas width="400" height="400"
-            onmousedown="onDown(event)"
-            ontouchstart="onDown(event)"
-            onmouseup="onUp()" 
-            ontouchend="onUp()" 
-            onmousemove="onMove(event)"
-            ontouchmove="onMove(event)"></canvas>
-            <div class="generator-buttons"></div>
-            <input type="color" id="pickColor" value="#000000">
-            <button class="sizePlus" data-change="1">+</button>
-            <button class="sizeMinus" data-change="-1">-</button>
-            <button class="deleteBtn" >Delete</button>
-            <button class="swichBtn" >Switch</button>
-            <input type="text" id="addText" placeholder="add text" required>
-            </div>
+            <div class="canvas-container">
+                <canvas width="400" height="400" onmousedown="onDown(event)" ontouchstart="onDown(event)"
+                    onmouseup="onUp()" ontouchend="onUp()" onmousemove="onMove(event)"
+                    ontouchmove="onMove(event)"></canvas>
+                <div class="generator-buttons">
+                    <input type="color" id="pickColor" value="#000000">
+                    <button class="sizePlus" data-change="1">+</button>
+                    <button class="sizeMinus" data-change="-1">-</button>
+                    <button class="deleteBtn">Delete</button>
+                    <button class="swichBtn">Switch</button>
+                    <input type="text" id="addText" placeholder="add text" required>
 
+                </div>
+            </div>
         </div>
-    </section >
+    </section>
 
 
 
@@ -58,8 +55,8 @@
     <script src="lib/jquery/jquery.js"></script>
     <script src="main/storage.js"></script>
     <script src="main/service.js"></script>
-    <script src="main/service/gallery.js"></script>
-    <script src="main/generator/generatorController.js"></script>
+    <!-- <script src="main/service/gallery.js"></script> -->
+    <!-- <script src="main/generator/generatorController.js"></script> -->
     <script src="main/controller.js"></script>
 </body>
 

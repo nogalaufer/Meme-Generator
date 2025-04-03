@@ -1,7 +1,16 @@
 .gallery-container > img  {
     height: 300px;
     width: 300px;
+    flex-grow: 1;
     margin: 10px;
     cursor: pointer;
 
+}
+
+.gallery-container{
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    /* גלילה אוטומטית רק אם התוכן יוצא מהגבולות */
+    border: 1px solid #ccc;
 }
