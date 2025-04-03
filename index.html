@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprint2</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body class="" onload="onInit()">
@@ -27,17 +29,19 @@
     <!-- Generator -->
     <section class="generator">
         <div class="generator-container">
-            <button id="backBtn">X</button>
+            <button id="backBtn">X<i class="fa-regular fa-rectangle-xmark"></i></button>
             <div class="canvas-container">
                 <canvas width="400" height="400" onmousedown="onDown(event)" ontouchstart="onDown(event)"
                     onmouseup="onUp()" ontouchend="onUp()" onmousemove="onMove(event)"
                     ontouchmove="onMove(event)"></canvas>
                 <div class="generator-buttons">
-                    <input type="color" id="pickColor" value="#000000">
-                    <button class="sizePlus" data-change="1">+</button>
-                    <button class="sizeMinus" data-change="-1">-</button>
-                    <button class="deleteBtn">Delete</button>
-                    <button class="swichBtn">Switch</button>
+                    <button id="colorBtn">
+                        <input type="color" id="pickColor" value="#000000">
+                    </button>
+                    <button class="sizePlus" data-change="1"><i class="fa-regular fa-square-plus"></i>+</button>
+                    <button class="sizeMinus" data-change="-1"><i class="fa-regular fa-square-minus"></i>-</button>
+                    <button class="deleteBtn">Delete<i class="fa-solid fa-trash"></i></button>
+                    <button class="swichBtn">Switch<i class="fa-solid fa-angles-right"></i></button>
                     <input type="text" id="addText" placeholder="add text" required>
 
                 </div>

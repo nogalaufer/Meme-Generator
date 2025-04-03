@@ -34,6 +34,7 @@
 canvas {
     background-color: white;
     border: 1px solid black;
+    max-width: 70%;
    
 }
 
@@ -43,4 +44,14 @@ canvas {
     justify-content: center;
     /* align-items:center ; */
     /* justify-items: center; */
+}
+
+#pickColor {
+    -webkit-appearance: none; /* מסיר עיצוב דפדפן ברירת מחדל */
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: none;
+    padding: 0;
 }
