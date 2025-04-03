@@ -6,9 +6,7 @@ var gMemes = {
     selectedLineIdx: 0,
     lines: [],
 }
-
-
-
+var gKeyWordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 var gImgs = [
     { id: 1, url: 'main/service/meme-imgs/meme-imgs-(square)/1.jpg', keywords: ['donald trump', 'politician', 'United States', 'us'] },
     { id: 2, url: 'main/service/meme-imgs/meme-imgs-(square)/2.jpg', keywords: ['dog', 'puppy', 'cute', 'baby'] },
@@ -35,8 +33,8 @@ function addText(text) {
     const line = {
         pos: { x: (gElCanvas.width * 0.5), y: (gElCanvas.height * 0.5) },
         txt: text,
-        size: 20,
-        color: 'pink',
+        size: 50,
+        color: 'black',
         isDrag: false,
     }
     gMemes.lines.push(line)
@@ -55,9 +53,20 @@ function getCurrMeme(imgID) {
     return gMemes.find(meme => meme.selectedImgId === imgID)
 }
 
-
-
-
 function _saveToStorage() {
     saveToStorage(KEY_STORAGE, value)
+}
+
+
+function filterByWord(searchWord) {
+   const imgByFilter= gImgs.filter((img) => img.keywords.includes(searchWord))
+   searchWordCounter(searchWord)
+   renderGalleryByFilter(imgByFilter)
+
+
+}
+
+function searchWordCounter(searchWord){
+    
+
 }
