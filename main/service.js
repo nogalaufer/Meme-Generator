@@ -60,13 +60,13 @@ function _saveToStorage() {
 
 function filterByWord(searchWord) {
    const imgByFilter= gImgs.filter((img) => img.keywords.includes(searchWord))
-//    searchWordCounter(searchWord)
+   searchWordCounter(searchWord)
    renderGalleryByFilter(imgByFilter)
 
 
 }
 
-// function searchWordCounter(searchWord){
+function searchWordCounter(searchWord){
     
 
-// }
+}
