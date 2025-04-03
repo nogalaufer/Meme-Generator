@@ -1,12 +1,12 @@
 'use strict'
 var KEY_STORAGE = 'key-storage'
-
+var gKeyWordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 var gMemes = {
     selectedImgId: 0,
     selectedLineIdx: 0,
     lines: [],
 }
-var gKeyWordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+
 var gImgs = [
     { id: 1, url: 'main/service/meme-imgs/meme-imgs-(square)/1.jpg', keywords: ['donald trump', 'politician', 'United States', 'us'] },
     { id: 2, url: 'main/service/meme-imgs/meme-imgs-(square)/2.jpg', keywords: ['dog', 'puppy', 'cute', 'baby'] },
@@ -29,25 +29,29 @@ var gImgs = [
 ]
 
 
-function addText(text,sizeDiff,color) {
+
+
+function deleteLine(selectedLineIdx){
+    const index = [gMemes.selectedLineIdx]
+    gMemes.lines.splice(index,1)
+
+}
+
+function addLine(text,sizeDiff,color = 'black') {
     const line = {
         pos: { x: gElCanvas.width * 0.5, y:   gElCanvas.height * 0.5 },
         txt: text,
-        size:5,
+        size:5 + sizeDiff,
         color: color,
         isDrag: false,
     }
     gMemes.lines.push(line)
+    gMemes.selectedLineIdx = gMemes.lines.length - 1
     return line
 }
 
 function createGMeme(id) {
     gMemes.selectedImgId =id
-}
-
-function setSelectedMeme(selectedLineIdx) {
-
-   return gMemes.lines[gMemes.selectedLineIdx] 
 }
 
 function getCurrMeme(imgID) {
@@ -57,7 +61,6 @@ function getCurrMeme(imgID) {
 function _saveToStorage() {
     saveToStorage(KEY_STORAGE, value)
 }
-
 
 function filterByWord(searchWord) {
    const imgByFilter= gImgs.filter((img) => img.keywords.includes(searchWord))
@@ -77,32 +80,10 @@ function searchWordCounter(searchWord){
 
 }
 
-// function getLine(ev){
-//     const pos = getEvPos(ev)
-//     const index= gMemes.lines.findIndex((line) => line.pos.x === pos.x )
-//     gMemes.selectedLineIdx = index
-//     return gMemes.lines[gMemes.selectedLineIdx]
-// }
-
 function getLine() {
     if (!gMemes || gMemes.selectedLineIdx < 0 || gMemes.lines.length === 0) {
         return null
     }
     return gMemes.lines[gMemes.selectedLineIdx]
-
-
 }
 
-function getCurrLine(pos) {
-    const line = gMemes.lines.find((line) => 
-        Math.abs(line.pos.x - pos.x) < 10 && Math.abs(line.pos.y - pos.y) < 10
-    )
-    if (!line) {
-        return
-    } else {
-        const index= gMemes.lines.findIndex((line) => line.pos.x === pos.x )
-        return index; // מחזיר את הקו אם נמצא, אחרת מחזיר undefined
-        
-    }
-    
-}
