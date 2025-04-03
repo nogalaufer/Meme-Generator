@@ -31,7 +31,7 @@ var gImgs = [
 
 function addText(text) {
     const line = {
-        pos: { x: (gElCanvas.width * 0.5), y: (gElCanvas.height * 0.5) },
+        pos: { x: gElCanvas.width * 0.5, y:   gElCanvas.height * 0.5 },
         txt: text,
         size: 50,
         color: 'black',
@@ -63,10 +63,24 @@ function filterByWord(searchWord) {
    searchWordCounter(searchWord)
    renderGalleryByFilter(imgByFilter)
 
+}
 
+function setElementDrag(isDrag) {
+    const line = getLine()
+    line.isDrag = isDrag
+    renderCanvas()
 }
 
 function searchWordCounter(searchWord){
     
+
+}
+
+function getLine() {
+    if (!gMemes || gMemes.selectedLineIdx < 0 || gMemes.lines.length === 0) {
+        return null
+    }
+    return gMemes.lines[gMemes.selectedLineIdx]
+
 
 }

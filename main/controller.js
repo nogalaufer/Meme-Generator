@@ -2,7 +2,7 @@
 var gCtx
 var gElCanvas
 let gSelectedImg = null
-var gElImg
+var gElImg 
 
 
 // search
@@ -69,7 +69,7 @@ function onCreateMeme(img) {
     const elImg = new Image()
     elImg.src = img.url
     const id = gImgs[gSelectedImg].id
-    console.log(id)
+    gElImg =elImg
     createGMeme(id)
     coverCanvasWithImg(elImg)
 
@@ -114,32 +114,23 @@ function renderGalleryByFilter(imgByFilter) {
 
 // ====================================================================
 
-function setElementDrag(isDrag) {
-    const line = getLine()
-    line.isDrag = isDrag
-}
+
 
 function renderCanvas() {
-    // coverCanvasWithImg(gElImg)
+    coverCanvasWithImg(gElImg)
 
     renderElements()
 }
 
+
+
 function renderElements() {
     const line = getLine()
-    if (!line) return
-
+    if (!line) return 
     drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color)
+    
 }
 
-function getLine() {
-    if (!gMemes || gMemes.selectedLineIdx < 0 || gMemes.lines.length === 0) {
-        return null
-    }
-    return gMemes.lines[gMemes.selectedLineIdx]
-
-
-}
 
 function getEvPos(ev) {
     const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
@@ -168,9 +159,6 @@ function getEvPos(ev) {
 
 
 
-
-
-
 function onDown(ev) {
     const pos = getEvPos(ev)
     const line = getLine()
@@ -180,6 +168,7 @@ function onDown(ev) {
     line.pos = pos
     document.body.style.cursor = 'grabbing'
 
+
 }
 
 function moveLine(dx, dy) {
@@ -188,14 +177,14 @@ function moveLine(dx, dy) {
 
     line.pos.x += dx
     line.pos.y += dy
-    // renderElements()
+    
     renderCanvas()
 
 }
 
 function onMove(ev) {
     const line = getLine()
-    // const { isDrag } = getLine()
+  
     if (!line || !line.isDrag) return
 
     const pos = getEvPos(ev)
@@ -227,15 +216,6 @@ function isElementClicked(pos) {
     const isYInside = pos.y >= line.pos.y - textHeight / 2 && pos.y <= line.pos.y + textHeight / 2
     return isXInside && isYInside
 
-    // if (
-    //     pos.x >= line.pos.x - textWidth / 2 &&
-    //     pos.x <= line.pos.x + textWidth / 2 &&
-    //     pos.y >= line.pos.y - textHeight / 2 &&
-    //     pos.y <= line.pos.y + textHeight / 2
-    // ) {
-    //     return true
-    // }
-    // return false
 }
 
 
@@ -243,18 +223,18 @@ function isElementClicked(pos) {
 
 // Canvas functions 
 function resizeCanvas() {
-    const elContainer = document.querySelector('.canvas-container')
+    if (!gElImg) return
 
-    //* Changing the canvas dimension clears the canvas\
+    const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.clientWidth * 0.9
     coverCanvasWithImg(gElImg)
+
 }
 
 function coverCanvasWithImg(elImg) {
-    elImg.onload = function () {
-        gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width;
-        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
-    }
+        gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
+        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+
 }
 
 
