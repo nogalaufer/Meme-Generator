@@ -18,7 +18,7 @@
     </header>
 <!-- Gallery -->
     <main class="main-container">
-        <div class="gallery-container">
+        <div class="gallery-container ">
     </main>
 
 
@@ -28,6 +28,7 @@
     <section class="generator">
         <div class="generator-container">
             <div class="canvas-container"></div>
+            <button id="backBtn">X</button>
             <canvas width="400" height="400"
             onmousedown="onDown(event)"
             ontouchstart="onDown(event)"
@@ -35,8 +36,12 @@
             ontouchend="onUp()" 
             onmousemove="onMove(event)"
             ontouchmove="onMove(event)"></canvas>
-            
+            <div class="generator-buttons"></div>
+            <input type="color" id="pickColor" value="#000000">
+            <button class="sizePlus" data-change="1">+</button>
+            <button class="sizeMinus" data-change="-1">-</button>
             <input type="text" id="addText" placeholder="add text" required>
+            </div>
 
         </div>
     </section >

@@ -36,3 +36,11 @@ canvas {
     border: 1px solid black;
    
 }
+
+.generator-container {
+    display: block;
+    place-items: center;
+    justify-content: center;
+    /* align-items:center ; */
+    /* justify-items: center; */
+}

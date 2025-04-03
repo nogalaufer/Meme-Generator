@@ -29,12 +29,12 @@ var gImgs = [
 ]
 
 
-function addText(text) {
+function addText(text,sizeDiff,color) {
     const line = {
         pos: { x: gElCanvas.width * 0.5, y:   gElCanvas.height * 0.5 },
         txt: text,
         size:5,
-        color: 'black',
+        color: color,
         isDrag: false,
     }
     gMemes.lines.push(line)
@@ -45,8 +45,9 @@ function createGMeme(id) {
     gMemes.selectedImgId =id
 }
 
-function setSelectedMeme(index) {
-    gMemes.lines[selectedLineIdx] = index
+function setSelectedMeme(selectedLineIdx) {
+
+   return gMemes.lines[gMemes.selectedLineIdx] 
 }
 
 function getCurrMeme(imgID) {
@@ -76,6 +77,13 @@ function searchWordCounter(searchWord){
 
 }
 
+// function getLine(ev){
+//     const pos = getEvPos(ev)
+//     const index= gMemes.lines.findIndex((line) => line.pos.x === pos.x )
+//     gMemes.selectedLineIdx = index
+//     return gMemes.lines[gMemes.selectedLineIdx]
+// }
+
 function getLine() {
     if (!gMemes || gMemes.selectedLineIdx < 0 || gMemes.lines.length === 0) {
         return null
@@ -83,4 +91,18 @@ function getLine() {
     return gMemes.lines[gMemes.selectedLineIdx]
 
 
+}
+
+function getCurrLine(pos) {
+    const line = gMemes.lines.find((line) => 
+        Math.abs(line.pos.x - pos.x) < 10 && Math.abs(line.pos.y - pos.y) < 10
+    )
+    if (!line) {
+        return
+    } else {
+        const index= gMemes.lines.findIndex((line) => line.pos.x === pos.x )
+        return index; // מחזיר את הקו אם נמצא, אחרת מחזיר undefined
+        
+    }
+    
 }

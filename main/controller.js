@@ -2,21 +2,42 @@
 var gCtx
 var gElCanvas
 let gSelectedImg = null
-var gElImg 
+var gElImg
 
 
+let sizeDiff = 0
 // search
+$('.generator-container').hide()
+
 $('#searchWord').change('keydown', onSearch)
 $('#searchBtn').click('input', onSearch)
 $('#clearBtn').click('input', renderGallery)
+
 $('#addText').change('keydown', function (event) {
     let text = $(this).val()
     $('#addText').val('')
-    onAddText(text)
+    let color = $('#pickColor').val()
+    onAddText(text,sizeDiff,color)
+    
+})
+
+$('.sizePlus').click(function() {
+    onSize(+$(this).data('change'))
+})
+$('.sizeMinus').click(function() {
+    onSize(+$(this).data('change'))
 })
 
 
 
+$('#backBtn').click('input', closeGenerator)
+
+
+function onSize(diff){
+    sizeDiff += diff
+    console.log(sizeDiff)
+
+}
 
 function onInit() {
     console.log('init')
@@ -29,15 +50,15 @@ function onInit() {
 }
 
 
-function onAddText(text) {
+function onAddText(text,sizeDiff,color) {
     if (!gMemes || !gMemes.lines) {
         return
     }
-    const line = addText(text)
-
-    console.log(line,'ffff')
+    const line = addText(text,color)
+    line.size += sizeDiff
+    console.log(line.size)
     gMemes.selectedLineIdx = gMemes.lines.length - 1
-    drawText(line.txt, line.pos.x, line.pos.y,line.size, line.color, )
+    drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color)
 
 }
 
@@ -57,9 +78,26 @@ function drawText(txt, x = gElCanvas.width * 0.5, y = gElCanvas.height * 0.5, si
 function openGenerator(imgID) {
     gSelectedImg = gImgs.findIndex(img => img.id === imgID)
 
-    // document.querySelector('.generator-container').classList.remove('hide')
-    // document.body.classList.toggle('generator-screen');
+    $('.main-container').hide()
+    $('.generator-container').show()
+    
+    document.body.classList.add('generator-screen')
+
+    $('#searchWord').hide()
+    $('#searchBtn').hide()
+    $('#clearBtn').hide()
+
     onCreateMeme(gImgs[gSelectedImg])
+}
+function closeGenerator() {
+    $('.main-container').show()
+    $('.generator-container').hide()
+
+    document.body.classList.remove('generator-screen')
+    
+    $('#searchWord').show()
+    $('#searchBtn').show()
+    $('#clearBtn').show()
 
 }
 
@@ -67,7 +105,7 @@ function onCreateMeme(img) {
     const elImg = new Image()
     elImg.src = img.url
     const id = gImgs[gSelectedImg].id
-    gElImg =elImg
+    gElImg = elImg
     createGMeme(id)
     coverCanvasWithImg(elImg)
 
@@ -80,7 +118,6 @@ function onSearch(ev) {
     $('#searchWord').val('')
 }
 
-
 function renderGallery() {
     var strHTMLs = ''
     if (gImgs && gImgs.length > 0) {
@@ -91,16 +128,15 @@ function renderGallery() {
     $('.gallery-container').html(strHTMLs)
 }
 
-
 function renderGalleryByFilter(imgByFilter) {
     var strHTMLs = ''
     if (!imgByFilter || imgByFilter.length < 0) {
-        alert('not find') 
+        alert('not find')
     }
-        strHTMLs = imgByFilter.map(img => {
-            return `<img src="${img.url}" alt="${img.id}" onclick="openGenerator(${img.id})">`
-        }).join('')
-        $('.gallery-container').html(strHTMLs)
+    strHTMLs = imgByFilter.map(img => {
+        return `<img src="${img.url}" alt="${img.id}" onclick="openGenerator(${img.id})">`
+    }).join('')
+    $('.gallery-container').html(strHTMLs)
 
 }
 
@@ -124,9 +160,10 @@ function renderCanvas() {
 
 function renderElements() {
     const line = getLine()
-    if (!line) return 
-    drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color)
-    
+    if (!line) return
+    gMemes.lines.map((line) => drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color))
+    // drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color)
+
 }
 
 function getEvPos(ev) {
@@ -153,9 +190,19 @@ function getEvPos(ev) {
     return pos
 }
 
+
+
+
 function onDown(ev) {
     const pos = getEvPos(ev)
-    const line = getLine()
+    const index= gMemes.lines.findIndex((line) => line.pos.x === pos.x )
+
+    getCurrLine(pos)
+    console.log(' getCurrLine(pos)', getCurrLine(pos))
+    
+    const line = getLine(ev)
+    console.log(line,'ddddddd',index)
+    // console.log("linetest: ", linetest)
 
     if (!line || !isElementClicked(pos)) return
     setElementDrag(true)
@@ -165,20 +212,20 @@ function onDown(ev) {
 
 }
 
-function moveLine(dx, dy) {
-    const line = getLine()
-    if (!line) return
+// function moveLine(dx, dy) {
+//     const line = getLine()
+//     if (!line) return
 
-    line.pos.x += dx
-    line.pos.y += dy
-    
-    renderCanvas()
+//     line.pos.x += dx
+//     line.pos.y += dy
 
-}
+//     renderCanvas()
+
+// }
 
 function onMove(ev) {
     const line = getLine()
-  
+
     if (!line || !line.isDrag) return
 
     const pos = getEvPos(ev)
@@ -207,8 +254,11 @@ function isElementClicked(pos) {
 
 
     const isXInside = pos.x >= line.pos.x - textWidth / 2 && pos.x <= line.pos.x + textWidth / 2 + padding
-    const isYInside = pos.y >= line.pos.y - textHeight / 2 && pos.y <= line.pos.y + textHeight / 2 +padding
+    const isYInside = pos.y >= line.pos.y - textHeight / 2 && pos.y <= line.pos.y + textHeight / 2 + padding
+    
+    // const currIdx= gMemes.lines.findIndex((line) => line.pos.x === pos.x )
     return isXInside && isYInside
+
 
 }
 
@@ -224,8 +274,8 @@ function resizeCanvas() {
 }
 
 function coverCanvasWithImg(elImg) {
-        gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
-        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+    gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
+    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 
 }
 
