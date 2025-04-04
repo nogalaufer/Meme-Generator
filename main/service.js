@@ -1,6 +1,7 @@
 'use strict'
-var KEY_STORAGE = 'key-storage'
-var gKeyWordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+const KEY_STORAGE = 'key-storage'
+var gKeyWordSearchCountMap 
+var gTotalSearchWord = loadFromStorage(KEY_STORAGE)
 var gMemes = {
     selectedImgId: 0,
     selectedLineIdx: 0,
@@ -58,14 +59,22 @@ function getCurrMeme(imgID) {
     return gMemes.find(meme => meme.selectedImgId === imgID)
 }
 
-function _saveToStorage() {
+function _saveToStorage(value) {
     saveToStorage(KEY_STORAGE, value)
 }
 
+
+
 function filterByWord(searchWord) {
+    gTotalSearchWord.push(searchWord)
+    _saveToStorage(gTotalSearchWord)
+
    const imgByFilter= gImgs.filter((img) => img.keywords.includes(searchWord))
-   searchWordCounter(searchWord)
    renderGalleryByFilter(imgByFilter)
+   searchWordCounter()
+
+
+//    להוסיף הודעה שלא מצא
 
 }
 
@@ -73,11 +82,6 @@ function setElementDrag(isDrag) {
     const line = getLine()
     line.isDrag = isDrag
     renderCanvas()
-}
-
-function searchWordCounter(searchWord){
-    
-
 }
 
 function getLine() {
