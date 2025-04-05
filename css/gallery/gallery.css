@@ -47,7 +47,6 @@
 
 }
 
-.gallery-container {}
 
 .home-page>.gallery-container {
     grid-area: gallery;
@@ -135,7 +134,7 @@ h1:hover {
     padding-left: 15px;
     padding-right: 15px;
     transition: 0.2s;
-    /* margin-right: 1em; */
+    margin-left: 10% ;
 }
 
 
