@@ -47,7 +47,7 @@ canvas {
 }
 
 #pickColor {
-    -webkit-appearance: none; /* מסיר עיצוב דפדפן ברירת מחדל */
+    /* -webkit-appearance: none; מסיר עיצוב דפדפן ברירת מחדל */
     border: none;
     width: 40px;
     height: 40px;
@@ -55,3 +55,105 @@ canvas {
     background: none;
     padding: 0;
 }
+
+#addText {
+    /* display: flex; */
+    font-family: Mulish-Regular, serif;
+    flex:2;
+    font-size: 1.5em;
+    justify-content: space-between;
+    height: 50px;
+    min-width: 300px;
+    border: 1px solid rgb(175, 164, 164);
+    border-radius: 3em;
+    background-color: rgba(255, 254, 253, 0.74);
+    padding-left: 15px;
+    padding-right: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+#addText:hover {
+    border: 1px solid rgb(245, 149, 24);
+    color:rgb(245, 149, 24);
+    transition: 0.2s;
+
+}
+
+.button{
+    border:0px;
+    color: rgba(54, 49, 49, 0.801);
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1.5em;
+    /* all: unset;  */
+    /* display: inline-block;  */
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button:hover{
+    color: rgb(245, 149, 24);
+    scale: 1.1;
+    transition: 0.2s;
+
+}
+
+.generator-buttons> button:active {
+    scale:1.3;
+    transition: 0.2s;
+}
+
+
+
+#backBtn{
+    border:0px;
+     color: rgba(54, 49, 49, 0.801); 
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1.5em;
+    /* all: unset;  */
+    display: inline-block; 
+    cursor: pointer;
+    transition: 0.2s;
+
+
+}
+
+#backBtn:hover {
+    scale: 0.9;
+    color: beige;
+    transition: 0.2s;
+
+}
+
+
+.generator-buttons > button:active {
+    scale: 0.8;
+    color: #ca7272;
+    transition: 0.2s;
+
+    /* לא עובד */
+}
+
+#downloadBtn{
+    text-decoration: none; 
+    color: inherit ; 
+    font-weight: normal;
+    font-size:1.5em;
+    margin-right: 12px;
+    transition: 0.5s;
+    color: rgba(54, 49, 49, 0.801); 
+
+}
+
+#downloadBtn:hover {
+    scale:1.05;
+    color: rgb(245, 149, 24);
+    transition: 0.5s;
+}
+
+#downloadBtn:active {
+    scale:1.15;
+    color: rgb(24, 245, 142);
+    transition: 0.5s;
+}
+

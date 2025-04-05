@@ -2,6 +2,10 @@ body {
     text-align: center;
     font-size: 1rem;
     background-color: rgba(167, 168, 175, 0.295);
+    
+}
+html {
+    font-family: Mulish-Regular, serif;
 }
 
 .mian-container {
@@ -10,19 +14,12 @@ body {
     
 }
 
-button {
-    font-size: 1.5em;
-    border-radius: 5px;
-    border: 1px solid black;
-    color:rgb(26, 32, 18);
- 
- 
-}
 
-input {
+/* input {
     border-radius: 5px;
     border: 1px solid black;
     height: 2.5em;
     font-size: 1em;
     margin-bottom: 10px;
 }
+ */

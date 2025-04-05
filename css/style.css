@@ -6,6 +6,7 @@
 /* בסיס, הלפרים, לייאאוט */
 
 @import url(base/base.css);
+@import url(base/layout.css);
 
 /* COMPONENTS */
 /* הדר, מאין, פוטר, עמודים */

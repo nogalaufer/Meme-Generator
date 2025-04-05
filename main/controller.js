@@ -52,7 +52,7 @@ function onInit() {
     window.addEventListener('resize', resizeCanvas)
     $('.generator-container').hide()
     searchWordCounter()
-    renderTopWords()
+    // renderTopWords()
 
 
 }
@@ -65,7 +65,7 @@ function searchWordCounter() {
         return acc
     }, {})
     const entriesSorted = Object.entries(gKeyWordSearchCountMap).sort((w1, w2) => w2[1] - w1[1])
-    const topWordsArry = entriesSorted.slice(0, 5)
+    const topWordsArry = entriesSorted.slice(0, 6)
     // return topWords
     const topWords = []
     for (var i = 0; i < topWordsArry.length; i++) {
@@ -73,7 +73,6 @@ function searchWordCounter() {
         const currWord = currArry[0]
         topWords.push(currWord)
     }
-    console.log(topWords)
     renderTopWords(topWords)
 }
 
@@ -84,7 +83,6 @@ function renderTopWords(topWords) {
             strHTMLs += `<a href="#" class="searchWord-link">${topWords[i]}</a>`
         }
         $('.topWords-container').html(strHTMLs)
-        console.log(strHTMLs)
     }
     // strHTMLs = topWords.map((word) => {
     //     return `<a href="#" class="searchWord-link">${word}</a>`
@@ -103,9 +101,9 @@ function openGenerator(imgID) {
 
     document.body.classList.add('generator-screen')
 
-    $('#searchWord').hide()
-    $('#searchBtn').hide()
-    $('#clearBtn').hide()
+    $('.search-container').hide()
+    $('.topWords-container').hide()
+    // $('#clearBtn').hide()
 
     onCreateMeme(gImgs[gSelectedImg])
 }
@@ -116,9 +114,8 @@ function closeGenerator() {
 
     document.body.classList.remove('generator-screen')
 
-    $('#searchWord').show()
-    $('#searchBtn').show()
-    $('#clearBtn').show()
+    $('.search-container').show()
+    $('.topWords-container').show()
 
 }
 
