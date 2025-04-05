@@ -16,13 +16,8 @@
    grid-area: main;
     display: grid;
     grid-template-columns: 10% 1fr 10%;
-    /* grid-template-rows: 10%; */
     grid-template-areas:
-    /* ". . ." */
-    /* ". . ." */
-    ". generator ."
-    /* ". . ." */
-    ;
+    ". generator .";
 
    height: 90vh;
 }

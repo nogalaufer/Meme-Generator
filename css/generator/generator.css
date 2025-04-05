@@ -44,16 +44,15 @@
     display: grid;
     /* height: 90; */
     /* width: 90; */
-    grid-template-columns: 1fr 1fr 1fr 1fr  10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr  20px;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
         "backBtn . . . . "
         " . . . .  . "
         " colorBtn size swichBtn delete  . "
-        /* " colorBtn size swichBtn delete  ." */
-        /* " addtext addtext addtext  . ." */
+        " colorBtn size swichBtn delete  ."
+        " addtext addtext addtext  . ."
         " addtext addtext addtext .  ."
-        /* " . download . . .  " */
         ".  . download download .";
 
     /* background-color: rgba(162, 157, 165, 0.884); */
@@ -92,7 +91,6 @@
 
 #pickColor {
     opacity: 0;
-    /* מסתיר את ה-input */
     position: absolute;
     border: none;
     width: 40px;
