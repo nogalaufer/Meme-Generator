@@ -1,7 +1,7 @@
 'use strict'
 const KEY_STORAGE = 'key-storage'
 var gKeyWordSearchCountMap 
-var gTotalSearchWord = loadFromStorage(KEY_STORAGE)
+var gTotalSearchWord 
 var gMemes = {
     selectedImgId: 0,
     selectedLineIdx: 0,
@@ -66,15 +66,18 @@ function _saveToStorage(value) {
 
 
 function filterByWord(searchWord) {
+    const imgByFilter= gImgs.filter((img) => img.keywords.includes(searchWord))
+    // console.log(imgByFilter)
+    if (imgByFilter.length ===0)  return alert('Not found, try again')
+    if (gTotalSearchWord===null) {
+        gTotalSearchWord = [searchWord]
+    }
     gTotalSearchWord.push(searchWord)
+
     _saveToStorage(gTotalSearchWord)
 
-   const imgByFilter= gImgs.filter((img) => img.keywords.includes(searchWord))
    renderGalleryByFilter(imgByFilter)
    searchWordCounter()
-
-
-//    להוסיף הודעה שלא מצא
 
 }
 

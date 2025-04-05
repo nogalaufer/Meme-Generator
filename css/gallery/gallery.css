@@ -1,22 +1,72 @@
-.gallery-container{
-    /* grid-area: main; */
+
+.home-page {
+    grid-column: 1/-1;
+}
+.gallery-color{ 
+    /* main page color */
+    background-color: rgb(238, 206, 137);
+    color: black;
+
+}
+.header-container {
+    grid-area: header;
+    z-index: 100;
+    background-color: rgb(238, 206, 137);
+    color: black;
+    height: 100;
+    width: 100vw;
+    padding-bottom: 10px;
+    border-radius: em;
+    position: sticky;
+    
+    display: grid;
+    grid-template-columns:20% 2fr 1fr 1fr 20%;
+    grid-template-areas:
+    ". logo logo logo ."
+    ". search  topSearch myMEME .";
+
+    
+}
+
+.myMEME-container{
+    grid-area: myMEME;
     display: flex;
+    justify-self: start;
+    margin-left: 2em;
+    align-items: center;
+    height: 50px;
+    width: max-content;
+    padding-left:1em;
+    padding-right:1em;
+    margin-right: 10px;
+    border: 1px solid rgba(175, 164, 164, 0.137);
+    border-radius: 3em;
+    color: rgb(255, 255, 255);
+    background-color: #ccc;
+
+}
+
+ .home-page> .gallery-container{
+    grid-area: gallery;
+    /* position: sticky; */
+    /* grid-column: 3/-3; */
+    /* grid-row: 2/2; */
+    
     justify-content: center;
 
     flex-basis: auto;
     flex-wrap: wrap;
-    width: 100vw;
+    width: 70px;
     height: 100vh;
     overflow: auto;
-    /* גלילה אוטומטית רק אם התוכן יוצא מהגבולות */
     border: 1px solid #ccc;
-    /* overflow: none; */
+    
 }
 .gallery-container > img  {
     /* display:block; */
     cursor: pointer;
-    height: 300px;
-    width: 300px;
+    height: 250px;
+    width: 250px;
     border-radius: 2em;
     margin: 10px; 
     flex-shrink: 1;
@@ -25,32 +75,40 @@
     transition: 1s;
     position: relative;
 }
-
 img:hover {
     scale:1.05;
     transition: 0.5s;
 }
-
-.header-container {
-    grid-area: header;
-    display: grid;
-    place-items: center;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-    "search  logo topSearch";
-    /* display: flex; */
+img:active {
+    scale:1.12;
+    transition: 0.5s;
 }
+
+
 
 h1{
     grid-area: logo;
-    font-size: 4em;
+    font-size: 5em;
     transition: 0.5s;
     position: relative;
+    margin-bottom:0.2em;
+    margin-top: 0;
+    
+}
+.logo-i{
+    font-size:1.6em;
+    font-family: Mulish-Bold, serif;
+
+}
+.logo-t {
+    font-size:1.6em;
+    font-family: Mulish-Regular, serif;
+
 }
 
+
 h1:hover{
-    display: block;
+    /* display: block; */
     transform: rotate(6deg);    
 }
 
@@ -63,16 +121,17 @@ h1:hover{
     grid-area: search;
     display: flex;
     flex:2;
-    
     justify-content: space-between;
     height: 50px;
     min-width: 300px;
-    border: 1px solid rgb(175, 164, 164);
+    max-width: 500px;
+    border: 1px solid rgb(175, 164, 164,0.137);
     border-radius: 3em;
     background-color: rgba(255, 254, 253, 0.74);
     padding-left: 15px;
     padding-right: 15px;
     transition: 0.2s;
+    margin-right: 1em;
 }
 
 
@@ -81,8 +140,6 @@ h1:hover{
     color: rgba(54, 49, 49, 0.801);
     background-color: rgba(255, 255, 255, 0);
     font-size: 1.5em;
-    /* all: unset;  */
-    /* display: inline-block;  */
     cursor: pointer;
     transition: 0.2s;
 }
@@ -120,7 +177,6 @@ h1:hover{
 }
 
 #searchWord{
-    
     font-family: Mulish-Regular, serif;
     height: 100%;
     width: 100%;
@@ -136,14 +192,17 @@ h1:hover{
 .topWords-container{
     grid-area: topSearch;
     display: flex;
-    /* justify-content: space-around; */
+    justify-content: space-between;
     align-items: center;
+    padding-left: 1em;
+    margin-right: 10px;
     height: 50px;
-    width: auto;
-    border: 1px solid rgb(175, 164, 164);
+    /* width: max-content; */
+    width: 100%;
+    border: 1px solid rgba(175, 164, 164, 0.137);
     border-radius: 3em;
-    padding-left: 15px;
-    padding-right: 15px;
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
     color: rgb(255, 255, 255);
     background-color: #ccc;
 }
@@ -157,12 +216,12 @@ h1:hover{
     transition: 0.5s;
 }
 .searchWord-link:hover {
-    scale:1.05;
+    scale:1.2;
     color: rgb(245, 149, 24);
     transition: 0.5s;
 }
 .searchWord-link:active {
-    scale:1.15;
+    scale:1.5;
     transition: 0.5s;
 }
 

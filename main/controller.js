@@ -20,7 +20,12 @@ $('#addText').change('keydown', function (event) {
     onAddText(text, sizeDiff, color)
 })
 
-$('#pickColor').change(pickColor)
+// $('#pickColor').change(pickColor)
+
+$('#pickColor').on('input', function () {
+    pickColor($(this).val()) // שולח את הערך של הצבע לפונקציה
+})
+
 $('.sizePlus').click(function () {
     onSize(+$(this).data('change'))
 })
@@ -33,7 +38,7 @@ $('.swichBtn').click(onSwich)
 $('#downloadBtn').click(function () { onDownload(this) })
 
 $('#backBtn').click('input', closeGenerator)
-$('.searchWord-link').click(function (event) {
+$(document).on('click', '.searchWord-link', function (event) {
     event.preventDefault()
     filterByWord($(this).text())
 })
@@ -44,7 +49,7 @@ $('.searchWord-link').click(function (event) {
 // =======================================================================
 
 function onInit() {
-    // loadFromStorage(KEY_STORAGE)
+    gTotalSearchWord = loadFromStorage(KEY_STORAGE)
     renderGallery()
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
@@ -84,11 +89,9 @@ function renderTopWords(topWords) {
         }
         $('.topWords-container').html(strHTMLs)
     }
-    // strHTMLs = topWords.map((word) => {
-    //     return `<a href="#" class="searchWord-link">${word}</a>`
-    // }).join('')
+
 }
-// }
+
 
 
 
@@ -98,11 +101,14 @@ function openGenerator(imgID) {
 
     $('.main-container').hide()
     $('.generator-container').show()
+    $('.h1').addClass('h1-generator')
 
     document.body.classList.add('generator-screen')
+    $('.header-container').addClass('generator-color')
 
     $('.search-container').hide()
     $('.topWords-container').hide()
+    $('.myMEME-container').hide()
     // $('#clearBtn').hide()
 
     onCreateMeme(gImgs[gSelectedImg])
@@ -112,10 +118,14 @@ function closeGenerator() {
     $('.main-container').show()
     $('.generator-container').hide()
 
+    $('.h1').removeClass('h1-generator')
+
     document.body.classList.remove('generator-screen')
+    $('.header-container').removeClass('generator-color')
 
     $('.search-container').show()
     $('.topWords-container').show()
+    $('.myMEME-container').show()
 
 }
 
@@ -199,6 +209,7 @@ function drawText(txt, x = gElCanvas.width * 0.5, y = gElCanvas.height * 0.5, si
 function pickColor() {
     const line = getLine()
     let color = $('#pickColor').val()
+    $('.newColor').css('color', color)
     line.color = color
     renderCanvas()
     selectElement(line)

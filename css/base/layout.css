@@ -1,15 +1,70 @@
-
 .main-layout {
-    /* display: grid; */
-    grid-template-columns:40px 1fr 40px;
-
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: 20% 2fr 20%;
     grid-template-rows: auto auto auto auto;
     grid-template-areas:
-        "header header header"
+        ". header ."
         ". main ."
+        ".gallery."
         ". pages ."
-        "footer footer footer";
-   
+    ;
+
 
 }
 
+.generator {
+   grid-area: main;
+    display: grid;
+    grid-template-columns: 10% 1fr 10%;
+    /* grid-template-rows: 10%; */
+    grid-template-areas:
+    ". . ."
+    /* ". . ." */
+    ". generator ."
+    /* ". . ." */
+    ". . .";
+
+   height: 90vh;
+
+
+}
+
+.generator-container{
+    /* grid-area: generator; */
+    grid-row:2/-2;
+
+}
+
+.canvas-container {
+    /* display: flex; */
+    /* grid-area: generator; */
+    padding-top: 1em;
+    background-color: rgba(61, 59, 57, 0.295);
+    border-radius: 3em;
+    display: grid;
+    height: 100;
+    width: 100vw;
+    grid-template-columns: 20% 2fr 30px 1fr 20%;
+    grid-template-rows: auto;
+    grid-template-areas:
+        ". canvas . buttons ."
+        ". canvas . buttons ."
+        ". addtext . download .";
+}
+
+
+
+
+/* GALLERY */
+/* 
+.home-page {
+
+    grid-column: 1/-2;
+    /* display: grid; */
+grid-template-columns:40px 1fr 40px;
+grid-template-rows: auto;
+grid-template-areas: " header "
+"gallery gallery gallery";
+/* } */
