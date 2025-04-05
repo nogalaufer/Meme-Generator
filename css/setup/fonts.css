@@ -2,11 +2,11 @@
 /* Mulish-bold */
 @font-face {
     font-family: Mulish-Bold;
-    src: url("/fonts/Mulish-Bold.ttf");
+    src: url("fonts/Mulish-Bold.ttf");
 }
 
 /* Mulish-regular */
 @font-face {
     font-family: Mulish-Regular;
-    src: url("/fonts/Mulish-Regular.ttf");
+    src: url("fonts/Mulish-Regular.ttf");
 }
