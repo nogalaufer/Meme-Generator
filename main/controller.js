@@ -101,27 +101,26 @@ function openGenerator(imgID) {
 
     $('.main-container').hide()
     $('.generator-container').show()
-    $('.h1').addClass('h1-generator')
 
     document.body.classList.add('generator-screen')
     $('.header-container').addClass('generator-color')
-
+    $('.h1').addClass('h1-generator')
+    
     $('.search-container').hide()
     $('.topWords-container').hide()
     $('.myMEME-container').hide()
-    // $('#clearBtn').hide()
-
+    
     onCreateMeme(gImgs[gSelectedImg])
 }
 
 function closeGenerator() {
     $('.main-container').show()
     $('.generator-container').hide()
-
-    $('.h1').removeClass('h1-generator')
-
+    
+    
     document.body.classList.remove('generator-screen')
     $('.header-container').removeClass('generator-color')
+    $('.h1').removeClass('h1-generator')
 
     $('.search-container').show()
     $('.topWords-container').show()

@@ -1,15 +1,13 @@
 .main-layout {
     display: grid;
-    height: 100vh;
-    width: 100vw;
+    height: 80vh;
+    width: 80vw;
     grid-template-columns: 20% 2fr 20%;
     grid-template-rows: auto auto auto auto;
     grid-template-areas:
         ". header ."
         ". main ."
-        ".gallery."
-        ". pages ."
-    ;
+        ".gallery.";
 
 
 }
@@ -20,51 +18,38 @@
     grid-template-columns: 10% 1fr 10%;
     /* grid-template-rows: 10%; */
     grid-template-areas:
-    ". . ."
+    /* ". . ." */
     /* ". . ." */
     ". generator ."
     /* ". . ." */
-    ". . .";
+    ;
 
    height: 90vh;
-
-
 }
 
 .generator-container{
-    /* grid-area: generator; */
-    grid-row:2/-2;
-
+    grid-area: generator;
+    display: grid;
+    grid-template-columns:5px 1fr 5px;
+    grid-template-areas: ".generator1.";
 }
 
 .canvas-container {
     /* display: flex; */
-    /* grid-area: generator; */
+    grid-area: generator1;
     padding-top: 1em;
-    background-color: rgba(61, 59, 57, 0.295);
+    padding-bottom: 1em;
+    background-color: rgba(82, 78, 74, 0.534);
     border-radius: 3em;
     display: grid;
-    height: 100;
-    width: 100vw;
-    grid-template-columns: 20% 2fr 30px 1fr 20%;
-    grid-template-rows: auto;
+    justify-items: center;
+    height: max-content;
+    width: max-content;
+    grid-template-columns: 1fr 1fr ;
+    /* grid-template-rows: auto; */
     grid-template-areas:
-        ". canvas . buttons ."
-        ". canvas . buttons ."
-        ". addtext . download .";
+        " canvas buttons ";
+
 }
 
 
-
-
-/* GALLERY */
-/* 
-.home-page {
-
-    grid-column: 1/-2;
-    /* display: grid; */
-grid-template-columns:40px 1fr 40px;
-grid-template-rows: auto;
-grid-template-areas: " header "
-"gallery gallery gallery";
-/* } */

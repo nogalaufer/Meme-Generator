@@ -17,10 +17,10 @@
     width: 100vw;
     padding-bottom: 10px;
     border-radius: em;
-    position: sticky;
+    position: relative;
     
     display: grid;
-    grid-template-columns:20% 2fr 1fr 1fr 20%;
+    grid-template-columns:10% 2fr 1fr 1fr 20%;
     grid-template-areas:
     ". logo logo logo ."
     ". search  topSearch myMEME .";
@@ -48,9 +48,6 @@
 
  .home-page> .gallery-container{
     grid-area: gallery;
-    /* position: sticky; */
-    /* grid-column: 3/-3; */
-    /* grid-row: 2/2; */
     
     justify-content: center;
 
@@ -73,7 +70,7 @@
     box-shadow:1px 2px rgba(53, 52, 52, 0.144),
     -0.2em 0 0.1em rgba(0, 0, 0, 0.192);;
     transition: 1s;
-    position: relative;
+    /* position: relative; */
 }
 img:hover {
     scale:1.05;
@@ -106,11 +103,11 @@ h1{
 
 }
 
-
 h1:hover{
     /* display: block; */
     transform: rotate(6deg);    
 }
+
 
 
 
