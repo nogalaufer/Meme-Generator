@@ -13,7 +13,7 @@ $('#searchWord').change('keydown', onSearch)
 $('#searchBtn').click('input', onSearch)
 $('#clearBtn').click('input', renderGallery)
 
-$('#addText').change('keydown', function (event) {
+$('#addText').click('keydown', function (event) {
     let text = $(this).val()
     let color = $('#pickColor').val()
     $('#addText').val('')
