@@ -48,7 +48,7 @@
     .canvas-container {
         padding: 0.5em;
         grid-area: generator;
-        /* max-width: 90%; */
+        max-width: 90%;
         background-color: rgba(82, 78, 74, 0.534);
         border-radius: 3em;
         /* grid-template-columns: minmax(500px,720px) 1fr; */
@@ -57,7 +57,7 @@
             "canvas"
             " buttons ";
         gap: 0;
-        max-width: 80%
+        /* max-width: 80% */
         
     }
     canvas {
