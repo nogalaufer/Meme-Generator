@@ -5,10 +5,10 @@
 /* ===imgs=== */
 .gallery-container>img {
     cursor: pointer;
-    height: 250px;
-    width: 250px;
+    max-height: 250px;
+    max-width: 250px;
     border-radius: 2em;
-    margin: 10px;
+    margin: 1em;
     flex-shrink: 1;
     box-shadow: 1px 2px rgba(53, 52, 52, 0.144),
         -0.2em 0 0.1em rgba(0, 0, 0, 0.192);
@@ -69,7 +69,7 @@ h1:hover {
     margin-left: 2em;
     align-items: center;
     height: 50px;
-    width: max-content;
+    /* width: max-content; */
     padding-left: 1em;
     padding-right: 1em;
     margin-right: 10px;
@@ -86,7 +86,7 @@ h1:hover {
     grid-area: search;
     display: flex;
     flex: 2;
-    justify-content: space-between;
+    margin-right:1em;
     justify-self: flex-end;
     height: 50px;
     min-width: 300px;
@@ -97,7 +97,6 @@ h1:hover {
     padding-left: 15px;
     padding-right: 15px;
     transition: 0.2s;
-    margin-right:1em ;
 }
 
 
@@ -169,11 +168,12 @@ h1:hover {
 .topWords-container {
     grid-area: topSearch;
     display: flex;
-    justify-content: space-between;
+
+    justify-content:space-between;
     align-items: center;
     padding-left: 1em;
     height: 50px;
-    width: 100%;
+    max-width: 80%;
     border: 1px solid rgba(175, 164, 164, 0.137);
     border-radius: 3em;
     color: rgb(255, 255, 255);

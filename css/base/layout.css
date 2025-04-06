@@ -1,50 +1,38 @@
 .main-layout {
     display: grid;
-    height: 80vh;
-    width: 80vw;
-    grid-template-columns: 20% 2fr 20%;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: 15px 2fr 15px;
     grid-template-rows: auto auto auto auto;
     grid-template-areas:
-        ". header ."
-        ". main ."
-        ".gallery.";
+        "header header header"
+        ".gallery."
+        "footer footer footer";
+    
 
 
 }
 
-.generator {
-   grid-area: main;
-    display: grid;
-    grid-template-columns: 10% 1fr 10%;
-    grid-template-areas:
-    ". generator .";
 
-   height: 90vh;
-}
-
-.generator-container{
-    grid-area: generator;
-    display: grid;
-    grid-template-columns:5px 1fr 5px;
-    grid-template-areas: ".generator1.";
+.generator-container {
+    grid-area: gallery;
+  
 }
 
 .canvas-container {
-    /* display: flex; */
-    grid-area: generator1;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 1em;
+    grid-area: generator;
+    align-self: start;
+    justify-self: center;
+    justify-items: center;
+    /* max-width: 90%; */
     background-color: rgba(82, 78, 74, 0.534);
     border-radius: 3em;
     display: grid;
     justify-items: center;
-    height: max-content;
-    width: max-content;
-    grid-template-columns: 1fr 1fr ;
-    /* grid-template-rows: auto; */
+    grid-template-columns: auto 1fr;
     grid-template-areas:
-        " canvas buttons ";
+        "canvas buttons ";
+    gap: 1em;
 
 }
-
-

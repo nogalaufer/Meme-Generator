@@ -102,8 +102,8 @@ function openGenerator(imgID) {
     $('.gallery-container').hide()
     $('.generator-container').show()
     
+    $('#backBtn').show()
     document.body.classList.add('generator-screen')
-    document.body.classList.add('main-layout')
     $('.header-container').addClass('generator-color')
     $('.h1').addClass('h1-generator')
     
@@ -118,7 +118,7 @@ function closeGenerator() {
     $('.gallery-container').show()
     $('.generator-container').hide()
     
-    
+    $('#backBtn').hide()
     document.body.classList.remove('generator-screen')
     $('.header-container').removeClass('generator-color')
     $('.h1').removeClass('h1-generator')

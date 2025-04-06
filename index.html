@@ -14,6 +14,7 @@
     <!-- <section class="home-page "> -->
         <header class="header-container">
             <h1 class="h1"> Meme<span class="logo-i">!</span><span class="logo-t">t</span></h1>
+            <button id="backBtn"><i class="fa-regular fa-rectangle-xmark backBtn"></i></button>
             <div class="search-container">
                 <input type="text" id="searchWord" placeholder="Search MEME" required>
                 <button id="searchBtn">
@@ -32,11 +33,10 @@
     <!-- </section> -->
     <!-- Gallery -->
     <!-- <main class="main-container"> -->
-    <div class="gallery-container"></div>
+    <div class="gallery-container"> </div>
         <!-- </main> -->
     <section class="generator-container">
         <div class="canvas-container">
-            <button id="backBtn"><i class="fa-regular fa-rectangle-xmark backBtn"></i></button>
             <canvas width="400" height="400" onmousedown="onDown(event)" ontouchstart="onDown(event)"
             onmouseup="onUp()" ontouchend="onUp()" onmousemove="onMove(event)" ontouchmove="onMove(event)">
             </canvas>

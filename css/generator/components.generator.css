@@ -12,19 +12,18 @@
 }
 
 #backBtn {
-    /* grid-area: backBtn; */
+    display: none;
+    grid-area: myMEME;
+    grid-area: back;
+    padding-left: 2em;
     border: 0px;
-    color: rgba(255, 255, 255, 0.644);
+    color: rgba(255, 255, 255, 0.24);
     background-color: rgba(255, 255, 255, 0);
     font-size: 2em;
-    /* justify-self: start; */
-    /* all: unset;  */
-    display: inline-block;
+    /* display: inline-block; */
     cursor: pointer;
     transition: 0.2s;
     position: absolute;
-    top:30%;
-    
 }
 
 
@@ -34,16 +33,6 @@
     transition: 0.2s;
 
 }
-
-
-.backBtn:active {
-    scale: 0.8;
-    color: #ca7272;
-    transition: 0.2s;
-
-}
-
-
 
 
 /* ====buttons ==== */ 
@@ -151,6 +140,14 @@
 }
 
 
+
+
+.backBtn:active {
+    scale: 0.8;
+    color: #ca7272;
+    transition: 0.2s;
+
+}
 
 #downloadBtn {
     grid-area: download;

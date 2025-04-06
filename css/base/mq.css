@@ -1,0 +1,98 @@
+/* MEDIA QUERRY */
+
+
+@media (max-width: 740px) {
+    .main-layout {
+        /* background-color: aqua; */
+        display: grid;
+    }
+
+    .header-container {
+        display: grid;
+        grid-template-columns: 15px 1fr 15px;
+        grid-template-areas:
+            ". logo ."
+            ". search .";
+
+    }
+
+    .search-container{
+        margin-right:0;
+        }
+
+    .h1 {
+        font-size: 3em;
+    }
+
+    .myMEME-container {
+        display: none;
+    }
+
+    .topWords-container {
+        display: none;
+    }
+
+    .gallery-container>img {
+        cursor: pointer;
+        max-height: 150px;
+        max-width: 150px;
+        margin: 0.4em;
+    }
+
+
+    /* generator */
+
+    .canvas-container {
+        padding: 0.5em;
+        grid-area: generator;
+        align-self: start;
+        justify-self: center;
+        justify-items: center;
+        /* max-width: 90%; */
+        background-color: rgba(82, 78, 74, 0.534);
+        border-radius: 3em;
+        display: grid;
+        justify-items: center;
+        /* grid-template-columns: minmax(500px,720px) 1fr; */
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "canvas"
+            " buttons ";
+        gap: 1em;
+    
+    }
+    canvas {
+        justify-self: center;
+        grid-area: canvas;
+        border: 1px solid black;
+        border-color: rgba(0, 0, 0, 0.356);
+        max-width: 80%;
+        
+    
+    }
+
+    #backBtn{
+        grid-area: search;
+        justify-self: end;
+
+    }
+
+    .generator-buttons {
+        grid-area: buttons;
+        align-items: center;
+        display: grid;
+        /* height: max-content; */
+        /* width: max-content; */
+        grid-template-columns:  1fr 1fr 1fr 1fr ;
+        grid-template-areas:
+        
+            " colorBtn size swichBtn delete  "
+            "  addtext  addtext addtext addtext"
+            " . . . download ";
+    
+    }
+    
+
+
+
+}

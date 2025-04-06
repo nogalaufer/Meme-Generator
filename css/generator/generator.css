@@ -15,25 +15,33 @@
 }
 
 
-canvas {
-
+.canvas {
+    justify-self: center;
     grid-area: canvas;
     border: 1px solid black;
     border-color: rgba(0, 0, 0, 0.356);
+    
+
 }
 
 
 .generator-buttons {
-    /* position: relative; */
     grid-area: buttons;
+    align-items: center;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    /* height: max-content; */
+    /* width: max-content; */
+    grid-template-columns:  1fr 1fr 1fr 1fr ;
     grid-template-areas:
-        ". . . .  "
-        " . . .  . "
+        " . . . . "
+    
+        /* "  . . .  ." */
+        "  . . .  ."
         " colorBtn size swichBtn delete  "
-        "addtext  addtext addtext addtext  "
-        ".  . . download ";
+        "  addtext  addtext addtext addtext"
+        " . . . download ";
 
 }
+
+
+
