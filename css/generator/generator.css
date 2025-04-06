@@ -6,7 +6,7 @@
     transition: 0.8s;
 }
 
-.generator-color {
+.generator-header-color {
     /* generator page color */
     background-color: rgb(0, 0, 0);
     color: azure;
@@ -16,10 +16,9 @@
 
 
 .canvas {
-    justify-self: center;
     grid-area: canvas;
-    border: 1px solid black;
-    border-color: rgba(0, 0, 0, 0.356);
+    justify-self: center;
+    /* border-color: rgba(0, 0, 0, 0.356); */
 
 }
 
@@ -28,19 +27,12 @@
     grid-area: buttons;
     align-items: center;
     display: grid;
-    /* height: max-content; */
-    /* width: max-content; */
-    grid-template-columns:  1fr 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
         " . . . . "
-    
-        /* "  . . .  ." */
         "  . . .  ."
         " colorBtn size swichBtn delete  "
         "  addtext  addtext addtext addtext"
         " . . . download ";
 
 }
-
-
-

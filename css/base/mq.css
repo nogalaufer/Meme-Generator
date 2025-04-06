@@ -14,10 +14,6 @@
         grid-template-areas:
             " logo "
             " search";
-
-            /* display: flex; */
-            /* flex-direction:  */
-            /* align-items: center; */
             align-content: center;
             justify-content: center;
 
@@ -32,7 +28,6 @@
     }
 
     .myMEME-container {
-        /* display: flex; */
         display: none !important;
     }
     
@@ -62,6 +57,7 @@
             "canvas"
             " buttons ";
         gap: 0;
+        max-width: 80%
         
     }
     canvas {

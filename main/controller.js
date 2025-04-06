@@ -104,8 +104,9 @@ function openGenerator(imgID) {
     
     $('#backBtn').show()
     document.body.classList.add('generator-screen')
-    $('.header-container').addClass('generator-color')
+    $('.header-container').addClass('generator-header-color')
     $('.h1').addClass('h1-generator')
+    $('footer').addClass('generator-footer-color')
     
     $('.search-container').hide()
     $('.topWords-container').hide()
@@ -117,10 +118,11 @@ function openGenerator(imgID) {
 function closeGenerator() {
     $('.gallery-container').show()
     $('.generator-container').hide()
+    $('footer').removeClass('generator-footer-color')
     
     $('#backBtn').hide()
     document.body.classList.remove('generator-screen')
-    $('.header-container').removeClass('generator-color')
+    $('.header-container').removeClass('generator-header-color')
     $('.h1').removeClass('h1-generator')
 
     $('.search-container').show()
