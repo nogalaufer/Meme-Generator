@@ -11,6 +11,40 @@
 
 }
 
+#backBtn {
+    /* grid-area: backBtn; */
+    border: 0px;
+    color: rgba(255, 255, 255, 0.644);
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 2em;
+    /* justify-self: start; */
+    /* all: unset;  */
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.2s;
+    position: absolute;
+    top:30%;
+    
+}
+
+
+#backBtn:hover {
+    scale: 0.9;
+    color: #ca7272;
+    transition: 0.2s;
+
+}
+
+
+.backBtn:active {
+    scale: 0.8;
+    color: #ca7272;
+    transition: 0.2s;
+
+}
+
+
+
 
 /* ====buttons ==== */ 
 
@@ -62,7 +96,7 @@
     border: 0px;
     color: rgba(255, 255, 255, 0.644);
     background-color: rgba(255, 255, 255, 0);
-    font-size: 4em;
+    font-size: 2em;
     transition: 0.2s;
 }
 
@@ -116,41 +150,14 @@
     transition: 0.2s;
 }
 
-#backBtn {
-    grid-area: backBtn;
-    border: 0px;
-    color: rgba(255, 255, 255, 0.644);
-    background-color: rgba(255, 255, 255, 0);
-    font-size: 2em;
-    /* justify-self: start; */
-    /* all: unset;  */
-    display: inline-block;
-    cursor: pointer;
-    transition: 0.2s;
-}
 
-
-#backBtn:hover {
-    scale: 0.9;
-    color: #ca7272;
-    transition: 0.2s;
-
-}
-
-
-.backBtn:active {
-    scale: 0.8;
-    color: #ca7272;
-    transition: 0.2s;
-
-}
 
 #downloadBtn {
     grid-area: download;
     text-decoration: none;
     color: inherit;
     font-weight: normal;
-    font-size: 4em;
+    font-size: 3em;
     margin-right: 12px;
     transition: 0.5s;
     color: rgba(255, 255, 255, 0.644);
@@ -167,4 +174,4 @@
     scale: 1.15;
     color: rgb(21, 194, 113);
     transition: 0.5s;
-
+}

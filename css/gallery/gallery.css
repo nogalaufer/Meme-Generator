@@ -21,25 +21,11 @@
     position: relative;
 
     display: grid;
-    grid-template-columns: 20px 2fr 1fr 1fr 20px;
+    grid-template-columns: 15px 2fr 1fr 1fr 15px;
     grid-template-areas:
         ". logo logo logo ."
-        ". search  topSearch myMEME .";
+        ". search topSearch myMEME ."
 
 
 }
 
-
-.home-page>.gallery-container {
-    grid-area: gallery;
-
-    justify-content: center;
-
-    flex-basis: auto;
-    flex-wrap: wrap;
-    width: 70px;
-    height: 100vh;
-    overflow: auto;
-    border: 1px solid #ccc;
-
-}

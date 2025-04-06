@@ -87,6 +87,7 @@ h1:hover {
     display: flex;
     flex: 2;
     justify-content: space-between;
+    justify-self: flex-end;
     height: 50px;
     min-width: 300px;
     max-width: 500px;
@@ -96,7 +97,7 @@ h1:hover {
     padding-left: 15px;
     padding-right: 15px;
     transition: 0.2s;
-    margin-left: 10%;
+    margin-right:1em ;
 }
 
 
