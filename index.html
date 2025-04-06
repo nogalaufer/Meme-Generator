@@ -11,7 +11,7 @@
 </head>
 
 <body class="main-layout" onload="onInit()">
-    <section class="home-page">
+    <!-- <section class="home-page "> -->
         <header class="header-container">
             <h1 class="h1"> Meme<span class="logo-i">!</span><span class="logo-t">t</span></h1>
             <div class="search-container">
@@ -29,17 +29,41 @@
 
             <!-- <div class="my-meme-container"></div> -->
         </header>
-        <!-- Gallery -->
-        <main class="main-container">
-            <div class="gallery-container ">
-        </main>
+    <!-- </section> -->
+    <!-- Gallery -->
+    <!-- <main class="main-container"> -->
+    <div class="gallery-container"></div>
+        <!-- </main> -->
+    <section class="generator-container">
+        <div class="canvas-container">
+            <button id="backBtn"><i class="fa-regular fa-rectangle-xmark backBtn"></i></button>
+            <canvas width="400" height="400" onmousedown="onDown(event)" ontouchstart="onDown(event)"
+            onmouseup="onUp()" ontouchend="onUp()" onmousemove="onMove(event)" ontouchmove="onMove(event)">
+            </canvas>
+            <div class="generator-buttons">
+                <button id="colorBtn">
+                    <input type="color" id="pickColor" value="#000000">
+                    <i class="fa-solid fa-palette newColor"></i>
+                </button>
+                <div class="sizesBtn">
+                    <button class="sizePlus button" data-change="1"><i
+                            class="fa-regular fa-square-plus"></i></button>
+                    <button class="sizeMinus button" data-change="-1"><i
+                            class="fa-regular fa-square-minus"></i></button>
+                </div>
+                <button class="deleteBtn button"><i class="fa-solid fa-trash"></i></button>
+                <button class="swichBtn button"><i class="fa-solid fa-angles-right"></i></button>
+                <input type="text" id="addText" placeholder="add text" required>
+                <a href="#" class="downloadBtn" id="downloadBtn" download="my-Meme.jpg"><i
+                        class="fa-solid fa-download"></i></a>
+            </div>
+        </div>
     </section>
 
 
-
-    <!-- Generator -->
-    <section class="generator">
-        <div class="generator-container">
+        <!-- Generator -->
+        <!-- <section class="generator"> -->
+        <!-- <div class="generator-container">
             <div class="canvas-container">
                 <canvas width="400" height="400" onmousedown="onDown(event)" ontouchstart="onDown(event)"
                     onmouseup="onUp()" ontouchend="onUp()" onmousemove="onMove(event)" ontouchmove="onMove(event)">
@@ -49,7 +73,6 @@
                         <input type="color" id="pickColor" value="#000000">
                         <i class="fa-solid fa-palette newColor"></i>
                     </button>
-
                     <button id="backBtn"><i class="fa-regular fa-rectangle-xmark backBtn"></i></button>
                     <div class="sizesBtn">
                         <button class="sizePlus button" data-change="1"><i
@@ -62,11 +85,10 @@
                     <input type="text" id="addText" placeholder="add text" required>
                     <a href="#" class="downloadBtn" id="downloadBtn" download="my-Meme.jpg"><i
                             class="fa-solid fa-download"></i></a>
-
                 </div>
             </div>
-        </div>
-    </section>
+        </div> -->
+        <!-- </section> -->
 
 
 
@@ -75,12 +97,10 @@
 
 
 
-    <script src="lib/jquery/jquery.js"></script>
-    <script src="main/storage.js"></script>
-    <script src="main/service.js"></script>
-    <!-- <script src="main/service/gallery.js"></script> -->
-    <!-- <script src="main/generator/generatorController.js"></script> -->
-    <script src="main/controller.js"></script>
+        <script src="lib/jquery/jquery.js"></script>
+        <script src="main/storage.js"></script>
+        <script src="main/service.js"></script>
+        <script src="main/controller.js"></script>
 </body>
 
 </html>

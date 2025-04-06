@@ -99,10 +99,11 @@ function renderTopWords(topWords) {
 function openGenerator(imgID) {
     gSelectedImg = gImgs.findIndex(img => img.id === imgID)
 
-    $('.main-container').hide()
+    $('.gallery-container').hide()
     $('.generator-container').show()
-
+    
     document.body.classList.add('generator-screen')
+    document.body.classList.add('main-layout')
     $('.header-container').addClass('generator-color')
     $('.h1').addClass('h1-generator')
     
@@ -114,7 +115,7 @@ function openGenerator(imgID) {
 }
 
 function closeGenerator() {
-    $('.main-container').show()
+    $('.gallery-container').show()
     $('.generator-container').hide()
     
     
