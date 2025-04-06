@@ -298,6 +298,7 @@ function selectLine(pos) {
 }
 
 function onDown(ev) {
+    ev.preventDefault()
     const pos = getEvPos(ev)
     // const index= gMemes.lines.findIndex((line) => line.pos.x === pos.x )
     selectLine(pos)
@@ -313,6 +314,7 @@ function onDown(ev) {
 }
 
 function onMove(ev) {
+    ev.preventDefault()
     const line = getLine()
 
     if (!line || !line.isDrag) return
