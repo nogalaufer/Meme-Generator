@@ -10,6 +10,8 @@
 
 /* COMPONENTS */
 /* הדר, מאין, פוטר, עמודים */
+@import url(generator/components.generator.css);
+@import url(gallery/components.gallery.css);
 
 /* gallery */
 

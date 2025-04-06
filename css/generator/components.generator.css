@@ -1,0 +1,170 @@
+
+/* GENERATOR */
+
+/* ====logo==== */
+
+.h1-generator {
+    transition: 2s;
+    transform: rotate(12deg);
+    margin: 0;
+
+
+}
+
+
+/* ====buttons ==== */ 
+
+
+.deleteBtn {
+    grid-area: delete;
+}
+
+.deleteBtn:hover {
+    color: #eb7f7f;
+}
+
+.swichBtn {
+    grid-area: swichBtn;
+}
+
+.swichBtn:hover {
+    color: aquamarine;
+}
+
+.sizesBtn {
+    grid-area: size;
+    display: flex;
+    justify-content: center;
+
+}
+
+.sizePlus:hover {
+    color: #e286cb;
+}
+
+.sizeMinus:hover {
+    color: rgb(148, 148, 241);
+}
+
+#pickColor {
+    opacity: 0;
+    position: absolute;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+}
+
+#colorBtn {
+    grid-area: colorBtn;
+    border: 0px;
+    color: rgba(255, 255, 255, 0.644);
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 4em;
+    transition: 0.2s;
+}
+
+#colorBtn:hover {
+    scale: 1.1;
+    transition: 0.2s;
+}
+
+#addText {
+    grid-area: addtext;
+    font-family: Mulish-Regular, serif;
+    flex: 2;
+    color: rgb(245, 149, 24);
+    font-size: 1.5em;
+    justify-content: space-between;
+    height: 50px;
+    min-width: 300px;
+    border: 1px solid rgb(175, 164, 164);
+    border-radius: 3em;
+    background-color: rgba(255, 254, 253, 0.74);
+    padding-left: 15px;
+    padding-right: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+#addText:hover {
+    border: 1px solid rgb(245, 149, 24);
+    color: rgb(245, 149, 24);
+    transition: 0.2s;
+}
+
+.button {
+    border: 0px;
+    color: rgba(255, 255, 255, 0.644);
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 2em;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button:hover {
+    /* color: rgb(245, 149, 24); */
+    scale: 1.1;
+    transition: 0.2s;
+
+}
+
+.generator-buttons>button:active {
+    scale: 1.3;
+    transition: 0.2s;
+}
+
+#backBtn {
+    grid-area: backBtn;
+    border: 0px;
+    color: rgba(255, 255, 255, 0.644);
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 2em;
+    /* justify-self: start; */
+    /* all: unset;  */
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+#backBtn:hover {
+    scale: 0.9;
+    color: #ca7272;
+    transition: 0.2s;
+
+}
+
+
+.backBtn:active {
+    scale: 0.8;
+    color: #ca7272;
+    transition: 0.2s;
+
+}
+
+#downloadBtn {
+    grid-area: download;
+    text-decoration: none;
+    color: inherit;
+    font-weight: normal;
+    font-size: 4em;
+    margin-right: 12px;
+    transition: 0.5s;
+    color: rgba(255, 255, 255, 0.644);
+
+}
+
+#downloadBtn:hover {
+    scale: 1.05;
+    color: rgb(27, 121, 15);
+    transition: 0.5s;
+}
+
+#downloadBtn:active {
+    scale: 1.15;
+    color: rgb(21, 194, 113);
+    transition: 0.5s;
+
