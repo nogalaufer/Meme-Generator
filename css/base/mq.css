@@ -9,10 +9,17 @@
 
     .header-container {
         display: grid;
-        grid-template-columns: 15px 1fr 15px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
         grid-template-areas:
-            ". logo ."
-            ". search .";
+            " logo "
+            " search";
+
+            /* display: flex; */
+            /* flex-direction:  */
+            /* align-items: center; */
+            align-content: center;
+            justify-content: center;
 
     }
 
@@ -25,11 +32,12 @@
     }
 
     .myMEME-container {
-        display: none;
+        /* display: flex; */
+        display: none !important;
     }
-
+    
     .topWords-container {
-        display: none;
+        display: none !important; 
     }
 
     .gallery-container>img {
@@ -45,21 +53,16 @@
     .canvas-container {
         padding: 0.5em;
         grid-area: generator;
-        align-self: start;
-        justify-self: center;
-        justify-items: center;
         /* max-width: 90%; */
         background-color: rgba(82, 78, 74, 0.534);
         border-radius: 3em;
-        display: grid;
-        justify-items: center;
         /* grid-template-columns: minmax(500px,720px) 1fr; */
         grid-template-rows: auto 1fr;
         grid-template-areas:
             "canvas"
             " buttons ";
-        gap: 1em;
-    
+        gap: 0;
+        
     }
     canvas {
         justify-self: center;
@@ -67,13 +70,16 @@
         border: 1px solid black;
         border-color: rgba(0, 0, 0, 0.356);
         max-width: 80%;
+      
         
     
     }
 
     #backBtn{
         grid-area: search;
-        justify-self: end;
+        /* margin-right: 30%; */
+        /* justify-self:; */
+        /* align-self: ; */
 
     }
 

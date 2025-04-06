@@ -62,9 +62,8 @@ h1:hover {
 
 /* ===conteiners=== */
 
-.myMEME-container {
+.myMEME-container{
     grid-area: myMEME;
-    display: flex;
     justify-self: start;
     margin-left: 2em;
     align-items: center;
@@ -77,6 +76,7 @@ h1:hover {
     border-radius: 3em;
     color: rgb(255, 255, 255);
     background-color: #ccc;
+    display: flex;
 
 }
 
@@ -86,7 +86,7 @@ h1:hover {
     grid-area: search;
     display: flex;
     flex: 2;
-    margin-right:1em;
+    margin-right: 1em;
     justify-self: flex-end;
     height: 50px;
     min-width: 300px;
@@ -167,17 +167,17 @@ h1:hover {
 
 .topWords-container {
     grid-area: topSearch;
-    display: flex;
-
-    justify-content:space-between;
+    /* width:100; */
+    justify-content: space-between;
     align-items: center;
     padding-left: 1em;
     height: 50px;
-    max-width: 80%;
+    max-width: 90%;
     border: 1px solid rgba(175, 164, 164, 0.137);
     border-radius: 3em;
     color: rgb(255, 255, 255);
     background-color: #ccc;
+    display: flex;
 }
 
 .searchWord-link {
