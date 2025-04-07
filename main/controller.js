@@ -136,6 +136,9 @@ function onCreateMeme(img) {
     elImg.src = img.url
     const id = gImgs[gSelectedImg].id
     gElImg = elImg
+    gElImg.onload = () => {
+        resizeCanvas()
+    }
     createGMeme(id)
     coverCanvasWithImg(elImg)
 
@@ -360,8 +363,13 @@ function resizeCanvas() {
     if (!gElImg) return
 
     const elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.clientWidth * 0.9
+    gElCanvas.width = elContainer.clientWidth * 0.6
+    gElCanvas.height = elContainer.clientHeight * 0.6
+    
+    
     coverCanvasWithImg(gElImg)
+
+
 
 }
 

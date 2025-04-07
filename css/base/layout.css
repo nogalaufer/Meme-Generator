@@ -24,7 +24,7 @@
 }
 
 .canvas-container {
-    padding: 1em;
+    margin: 4rem;
     grid-area: generator;
     display: flex;
     /* justify-self: center; */
