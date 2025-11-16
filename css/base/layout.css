@@ -19,7 +19,8 @@
     grid-area: header;
 }
 
-.generator-container,.gallery-container {
+.generator-container,
+.gallery-container {
     grid-area: gallery;
 
 }
@@ -28,8 +29,7 @@
     margin: 4rem;
     grid-area: generator;
     display: flex;
-    /* justify-self: center; */
-    place-self: center;
+    /* place-self: center; */
     background-color: rgba(82, 78, 74, 0.534);
     border-radius: 3em;
     display: grid;
@@ -38,9 +38,8 @@
         "canvas buttons ";
     gap: 1em;
 
-}
+    .canvas {
+        grid-area: canvas;
 
-.canvas {
-    grid-area: canvas;
-
+    }
 }

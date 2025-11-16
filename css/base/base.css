@@ -6,13 +6,23 @@ body {
     width: 100vw;
     transition: 1s;
 
-    
+
 }
+
 html {
     font-family: Mulish-Regular, serif;
 }
 
 
+button {
+    cursor: pointer;
+
+}
+
+button:hover {
+    scale: 0.9;
+    transition: 0.2s;
+}
 
 .hide {
     display: none;

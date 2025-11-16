@@ -16,7 +16,6 @@
     color: rgba(255, 255, 255, 0.24);
     background-color: rgba(255, 255, 255, 0);
     font-size: 2em;
-    cursor: pointer;
     transition: 0.2s;
     
 }
@@ -65,7 +64,6 @@
     border: none;
     width: 40px;
     height: 40px;
-    cursor: pointer;
     background: none;
     padding: 0;
 }
@@ -88,7 +86,6 @@
     /* grid-area: addtext; */
     font-family: Mulish-Regular, serif;
     flex: 2;
-    /* color: rgb(245, 149, 24); */
     font-size: 1.5em;
     justify-content: space-between;
     height: 50px;
@@ -114,16 +111,10 @@
     color: rgba(255, 255, 255, 0.644);
     background-color: rgba(255, 255, 255, 0);
     font-size: 2em;
-    cursor: pointer;
     transition: 0.2s;
 }
 
-.button:hover {
-    /* color: rgb(245, 149, 24); */
-    scale: 0.9;
-    transition: 0.2s;
 
-}
 
 .generator-buttons>.button:active {
     scale: 0.8;

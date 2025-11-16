@@ -36,7 +36,6 @@
     }
 
     .gallery-container>img {
-        cursor: pointer;
         max-height: 150px;
         max-width: 150px;
         margin: 0.4em;
