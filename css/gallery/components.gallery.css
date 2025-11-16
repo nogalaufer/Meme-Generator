@@ -64,6 +64,7 @@ h1:hover {
 
 .myMEME-container{
     grid-area: myMEME;
+    display: flex;
     justify-self: start;
     margin-left: 2em;
     align-items: center;
@@ -76,7 +77,6 @@ h1:hover {
     border-radius: 3em;
     color: rgb(255, 255, 255);
     background-color: #ccc;
-    display: flex;
 
 }
 
@@ -171,6 +171,7 @@ h1:hover {
     justify-content: space-between;
     align-items: center;
     padding-left: 1em;
+    padding-right: 1em;
     height: 50px;
     max-width: 90%;
     border: 1px solid rgba(175, 164, 164, 0.137);
@@ -184,7 +185,7 @@ h1:hover {
     text-decoration: none;
     color: inherit;
     font-weight: normal;
-    font-size: 1.5em;
+    /* font-size: 1.5em; */
     margin-right: 12px;
     transition: 0.5s;
 }

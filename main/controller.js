@@ -38,8 +38,13 @@ $('.swichBtn').click(onSwich)
 $('#downloadBtn').click(function () { onDownload(this) })
 
 $('#backBtn').click('input', closeGenerator)
+
+// להגדיל פונט
 $(document).on('click', '.searchWord-link', function (event) {
     event.preventDefault()
+    console.log($(this).css('font-size'))
+    // let currentSize = (parseFloat($(this).css('font-size')))
+    // $(this).css('font-size', ((parseFloat($(this).css('font-size'))) * 1.2) + 'em;')
     filterByWord($(this).text())
 })
 

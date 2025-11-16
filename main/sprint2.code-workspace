@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../Dropbox/CaFeb25-ExerciseSubmission/Noga Laufer/Day27-Jquery&Bootstrap/EX/Ex-GuessMe-starter/lib"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "sprint2"
+	}
+}
