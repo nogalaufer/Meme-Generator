@@ -47,7 +47,7 @@ function deleteLine() {
 function addLine(text, sizeDiff, color = 'black') {
     const line = {
         pos: { x: gElCanvas.width * 0.5, y: gElCanvas.height * 0.5 },
-        txt: text,
+        txt: text ||'New line',
         size: 5 + sizeDiff,
         color,
         isDrag: false,
@@ -60,7 +60,7 @@ function addLine(text, sizeDiff, color = 'black') {
 function createGMeme(id) {
     gMemes.selectedImgId = id
     gMemes.selectedLineIdx = 0
-    gMemes.lines = []
+    gMemes.lines = []    
 }
 
 function getCurrMeme(imgID) {
@@ -112,8 +112,10 @@ function setElementDrag(isDrag) {
 }
 
 function getLine() {
-    if (!gMemes || gMemes.selectedLineIdx < 0 || !gMemes.lines.length) {
-        return null
-    }
-    return gMemes.lines[gMemes.selectedLineIdx]
+    if (!gMemes || !gMemes.lines.length) return null
+
+    const idx = gMemes.selectedLineIdx
+    if (idx < 0 || idx >= gMemes.lines.length) return null
+
+    return gMemes.lines[idx]
 }

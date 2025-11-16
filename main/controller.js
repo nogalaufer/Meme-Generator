@@ -42,15 +42,13 @@ function bindEvents() {
         renderGallery()
     })
 
-    // add text (Enter בתוך האינפוט)
-    $('#addText').on('keydown', function (ev) {
-        if (ev.key !== 'Enter') return
-        const text = $(this).val()
-        if (!text) return
-        const color = $('#pickColor').val()
-        $(this).val('')
-        onAddText(text, sizeDiff, color)
-    })
+    // add text 
+$('#addText').on('input', function () {
+    const text = $(this).val()
+    onAddText(text) 
+})
+    $('#addLineBtn').on('click', onAddLine)
+
 
     // pick color
     $('#pickColor').on('input', function () {
@@ -149,7 +147,7 @@ function renderTopWords(topWords) {
 function onSearch() {
     const searchWord = $('#searchWord').val().toLowerCase().trim()
     $('#searchWord').val('')
-    filterByWord(searchWord) // הלוגיקה בפונקציה בסרוויס
+    filterByWord(searchWord) 
 }
 
 // =======================================================================
@@ -225,14 +223,21 @@ function closeGenerator() {
 function onCreateMeme(img) {
     const elImg = new Image()
     elImg.src = img.url
-    const id = gImgs[gSelectedImg].id
     gElImg = elImg
-    gElImg.onload = () => {
+
+    createGMeme(img.id)
+
+    const color = $('#pickColor').val() || '#000000'
+    const line = addLine('', 0, color)
+
+    elImg.onload = () => {
         resizeCanvas()
-        coverCanvasWithImg(elImg)
+        renderCanvas()
     }
-    createGMeme(id)
+
+    $('#addText').val(line.txt).focus()
 }
+
 
 // =======================================================================
 //  Meme edit
@@ -246,13 +251,33 @@ function onDownload(elLink) {
 function onDeleteLine() {
     deleteLine()
     renderCanvas()
+
+    const line = getLine()
+    if (!line) $('#addText').val('')
+    else $('#addText').val(line.txt)
 }
 
-function onAddText(text, sizeDiff, color) {
-    if (!gMemes || !gMemes.lines) return
+function onAddText(text) {
+    const line = getLine()
+    if (!line) return
+    line.txt = text
+    renderCanvas()
+}
 
-    const line = addLine(text, sizeDiff, color)
-    drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color)
+function onAddLine() {
+    const text = 'New line'
+    const color = '#000000'
+
+    const line = addLine(text, 0, color) 
+    renderCanvas()
+
+    $('#addText').val(line.txt).focus().select()
+}
+
+function clearSelection() {
+    gMemes.selectedLineIdx = -1
+    renderCanvas()
+    $('#addText').blur()
 }
 
 function drawText(txt, x = gElCanvas.width * 0.5, y = gElCanvas.height * 0.5, size = 5, color) {
@@ -279,6 +304,8 @@ function pickColor(color) {
 function selectElement(line) {
     if (!line) return
     drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color)
+    drawSelectionBox(line)
+
 }
 
 function onSize(diff) {
@@ -290,12 +317,18 @@ function onSize(diff) {
 
 function onSwich() {
     if (!gMemes.lines.length) return
+
     gMemes.selectedLineIdx += 1
     if (gMemes.selectedLineIdx >= gMemes.lines.length) {
         gMemes.selectedLineIdx = 0
     }
-    selectElement(gMemes.lines[gMemes.selectedLineIdx])
-    return gMemes.lines[gMemes.selectedLineIdx]
+
+    const line = gMemes.lines[gMemes.selectedLineIdx]
+    selectElement(line)
+
+    $('#addText').val(line.txt)
+
+    return line
 }
 
 // =======================================================================
@@ -311,10 +344,11 @@ function renderCanvas() {
 function renderElements() {
     const line = getLine()
     if (!line) return
+    
     gMemes.lines.map(line =>
         drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color)
     )
-        drawSelectionBox(line)
+    drawSelectionBox(line)
 
 }
 
@@ -326,7 +360,7 @@ function drawSelectionBox(line) {
     const textWidth = gCtx.measureText(line.txt).width
 
     const paddingX = 20
-    const paddingTop = 40  
+    const paddingTop = 40
     const paddingBottom = 40
 
     const rectX = line.pos.x - textWidth / 2 - paddingX
@@ -338,7 +372,7 @@ function drawSelectionBox(line) {
 
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'yellow'
-    gCtx.setLineDash([6, 4]) 
+    gCtx.setLineDash([6, 4])
 
     gCtx.strokeRect(rectX, rectY, rectWidth, rectHeight)
 
@@ -373,7 +407,11 @@ function selectLine(pos) {
 
     if (index !== -1) {
         gMemes.selectedLineIdx = index
-        return gMemes.lines[index]
+        const line = gMemes.lines[index]
+
+        $('#addText').val(line.txt)
+
+        return line
     }
 }
 

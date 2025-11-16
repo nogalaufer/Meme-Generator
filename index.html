@@ -9,35 +9,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
+
 <body class="main-layout">
 
     <!-- Header -->
-        <header class="header-container">
-            <h1 class="h1"> Meme<span class="logo-i">!</span><span class="logo-t">t</span></h1>
-            <button id="backBtn"><i class="fa-solid fa-rotate-left"></i></i></button>
-            <div class="search-container">
-                <input type="text" id="searchWord" placeholder="Search MEME" required>
-                <button id="searchBtn">
-                    <search class="fa-solid fa-magnifying-glass"></search>
-                </button>
-                <button id="clearBtn">
-                    <clear class="fa-solid fa-ban"></clear>
-                </button>
-            </div>
-            <div class="topWords-container"></div>
-            
-            <div class="myMEME-container">MyMeme's</div>
+    <header class="header-container">
+        <h1 class="h1"> Meme<span class="logo-i">!</span><span class="logo-t">t</span></h1>
+        <button id="backBtn"><i class="fa-solid fa-rotate-left"></i></i></button>
+        <div class="search-container">
+            <input type="text" id="searchWord" placeholder="Search MEME" required>
+            <button id="searchBtn">
+                <search class="fa-solid fa-magnifying-glass"></search>
+            </button>
+            <button id="clearBtn">
+                <clear class="fa-solid fa-ban"></clear>
+            </button>
+        </div>
+        <div class="topWords-container"></div>
 
-        </header>
+        <div class="myMEME-container">MyMeme's</div>
+
+    </header>
     <!-- Gallery -->
     <div class="gallery-container"> </div>
     <!-- Footer -->
     <footer class="footer-container"> Created by Noga Laufer</footer>
 
-        <!-- Generetor -->
+    <!-- Generetor -->
     <section class="generator-container">
         <div class="canvas-container">
-         
+
             <canvas id="meme-canvas" width="400" height="400"></canvas>
 
             <div class="generator-buttons">
@@ -49,13 +50,15 @@
                     <button class="sizePlus button" data-change="1">
                         <i class="fa-regular fa-square-plus"></i>
                     </button>
-                    <button class="sizeMinus button" data-change="-1"><i
-                            class="fa-regular fa-square-minus"></i>
-                        </button>
+                    <button class="sizeMinus button" data-change="-1"><i class="fa-regular fa-square-minus"></i>
+                    </button>
                 </div>
                 <button class="deleteBtn button"><i class="fa-solid fa-trash"></i></button>
                 <button class="swichBtn button"><i class="fa-solid fa-angles-right"></i></button>
-                <input type="text" id="addText" placeholder="add text" required>
+                <button id="addLineBtn" class="button">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <input type="text" id="addText" placeholder="Add text" required>
                 <a href="#" class="downloadBtn" id="downloadBtn" download="my-Meme.jpg"><i
                         class="fa-solid fa-download"></i></a>
             </div>
@@ -65,10 +68,10 @@
 
 
 
-        <script src="lib/jquery/jquery.js"></script>
-        <script src="main/storage.js"></script>
-        <script src="main/service.js"></script>
-        <script src="main/controller.js"></script>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="main/storage.js"></script>
+    <script src="main/service.js"></script>
+    <script src="main/controller.js"></script>
 </body>
 
 </html>
