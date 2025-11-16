@@ -277,6 +277,7 @@ function onAddLine() {
 function clearSelection() {
     gMemes.selectedLineIdx = -1
     renderCanvas()
+
     $('#addText').blur()
 }
 
@@ -298,14 +299,12 @@ function pickColor(color) {
     $('.newColor').css('color', color)
     line.color = color
     renderCanvas()
-    selectElement(line)
 }
 
 function selectElement(line) {
     if (!line) return
-    drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color)
-    drawSelectionBox(line)
-
+    $('#addText').val(line.txt)
+    renderCanvas()
 }
 
 function onSize(diff) {
@@ -314,7 +313,6 @@ function onSize(diff) {
     line.size += diff
     renderCanvas()
 }
-
 function onSwich() {
     if (!gMemes.lines.length) return
 
@@ -322,11 +320,9 @@ function onSwich() {
     if (gMemes.selectedLineIdx >= gMemes.lines.length) {
         gMemes.selectedLineIdx = 0
     }
-
     const line = gMemes.lines[gMemes.selectedLineIdx]
-    selectElement(line)
-
     $('#addText').val(line.txt)
+    renderCanvas()
 
     return line
 }
@@ -342,14 +338,16 @@ function renderCanvas() {
 }
 
 function renderElements() {
-    const line = getLine()
-    if (!line) return
-    
-    gMemes.lines.map(line =>
+    if (!gMemes.lines.length) return
+
+    gMemes.lines.forEach(line =>
         drawText(line.txt, line.pos.x, line.pos.y, line.size, line.color)
     )
-    drawSelectionBox(line)
 
+    const selectedLine = getLine()
+    if (selectedLine) {
+        drawSelectionBox(selectedLine)
+    }
 }
 
 function drawSelectionBox(line) {
