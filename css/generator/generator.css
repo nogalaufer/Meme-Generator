@@ -1,7 +1,7 @@
 .generator-screen {
     inset: 1;
     background-color: rgb(0, 0, 0);
-    cursor: pointer;
+    /* cursor: pointer; */
     opacity: 1;
     transition: 0.8s;
 }
@@ -16,9 +16,6 @@
 
 
 .canvas {
-    grid-area: canvas;
-    justify-self: center;
-    /* border-color: rgba(0, 0, 0, 0.356); */
 
 }
 
@@ -29,10 +26,38 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        " . . . . "
-        "  . . .  ."
-        " colorBtn size swichBtn delete  "
+        " title title title title "
+        "  . addLine delete  ."
+        " colorBtn size swichBtn .  "
         "  addtext  addtext addtext addtext"
         " . . . download ";
 
+}
+.swichBtn {
+    grid-area: swichBtn;
+}
+
+.deleteBtn {
+    grid-area: delete;
+}
+#addLineBtn{
+    grid-area: addLine;
+}
+.sizesBtn {
+    grid-area: size;
+}
+
+#colorBtn {
+    grid-area: colorBtn;
+}
+#addText {
+    grid-area: addtext;
+}
+#downloadBtn {
+    grid-area: download;
+}
+
+.title{
+    grid-area: title;
+    
 }

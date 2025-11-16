@@ -7,23 +7,18 @@
     transition: 2s;
     transform: rotate(12deg);
     margin: 0;
-
-
 }
 
 #backBtn {
     display: none;
-    grid-area: myMEME;
-    /* grid-area: back; */
     padding-left: 2em;
     border: 0px;
     color: rgba(255, 255, 255, 0.24);
     background-color: rgba(255, 255, 255, 0);
     font-size: 2em;
-    /* display: inline-block; */
     cursor: pointer;
     transition: 0.2s;
-    position: absolute;
+    
 }
 
 
@@ -38,24 +33,19 @@
 /* ====buttons ==== */ 
 
 
-.deleteBtn {
-    grid-area: delete;
-}
-
 .deleteBtn:hover {
     color: #eb7f7f;
 }
 
-.swichBtn {
+/* .swichBtn {
     grid-area: swichBtn;
-}
+} */
 
 .swichBtn:hover {
     color: aquamarine;
 }
 
 .sizesBtn {
-    grid-area: size;
     display: flex;
     justify-content: center;
 
@@ -81,7 +71,7 @@
 }
 
 #colorBtn {
-    grid-area: colorBtn;
+    /* grid-area: colorBtn; */
     border: 0px;
     color: rgba(255, 255, 255, 0.644);
     background-color: rgba(255, 255, 255, 0);
@@ -95,10 +85,10 @@
 }
 
 #addText {
-    grid-area: addtext;
+    /* grid-area: addtext; */
     font-family: Mulish-Regular, serif;
     flex: 2;
-    color: rgb(245, 149, 24);
+    /* color: rgb(245, 149, 24); */
     font-size: 1.5em;
     justify-content: space-between;
     height: 50px;
@@ -151,7 +141,7 @@
 }
 
 #downloadBtn {
-    grid-area: download;
+    /* grid-area: download; */
     text-decoration: none;
     color: inherit;
     font-weight: normal;
@@ -172,4 +162,13 @@
     scale: 1.15;
     color: rgb(21, 194, 113);
     transition: 0.5s;
+}
+
+    
+#addLineBtn:hover{
+        color: rgb(127, 212, 119);
+
+}
+.title{
+
 }

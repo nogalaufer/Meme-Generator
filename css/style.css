@@ -3,19 +3,19 @@
 
 
 /* BASICS */
-/* בסיס, הלפרים, לייאאוט */
 
 @import url(base/base.css);
 @import url(base/layout.css);
 
 /* COMPONENTS */
-/* הדר, מאין, פוטר, עמודים */
 @import url(generator/components.generator.css);
-@import url(gallery/components.gallery.css);
+/* @import url(gallery/components.gallery.css); */
 
 /* gallery */
-
+@import url(gallery/logo.css);
+@import url(gallery/header.css);
 @import url(gallery/gallery.css);
+
 /* generator */
 @import url(generator/generator.css);
 

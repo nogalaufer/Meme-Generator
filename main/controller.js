@@ -423,7 +423,7 @@ function onDown(ev) {
     if (!line || !isElementClicked(pos)) return
     setElementDrag(true)
     line.pos = pos
-    document.body.style.cursor = 'grabbing'
+        gElCanvas.style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
@@ -440,7 +440,7 @@ function onMove(ev) {
 
 function onUp() {
     setElementDrag(false)
-    document.body.style.cursor = 'grab'
+    gElCanvas.style.cursor = 'grab'
 }
 
 function isElementClicked(pos) {

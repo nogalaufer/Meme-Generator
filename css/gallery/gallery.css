@@ -1,48 +1,30 @@
-.home-page {
-    grid-column: 1/-1;
-}
-
-.gallery-color {
-    /* main page color */
-    background-color: rgb(238, 206, 137);
-    color: black;
-}
-
-.header-container {
-    grid-area: header;
-    z-index: 100;
-    background-color: rgb(238, 206, 137);
-    color: black;
-    height: 100;
-    width: 100vw;
-    padding-bottom: 10px;
-    /* border-radius: 1em; */
-    position: relative;
-
-    display: grid;
-    grid-template-columns:  2fr 1fr 1fr ;
-    grid-template-areas:
-        " logo logo logo"
-        " search topSearch myMEME ";
-
-
-}
-
-
 .gallery-container {
-    grid-area: gallery;
-
-
+    width: 100%;
     justify-content: center;
-    /* border-radius: 1em; */
-
-    flex-basis: auto;
-    flex-wrap: wrap;
-    /* width: 90%; */
-
-
-    /* height: 100vh; */
     overflow: auto;
     border: 1px solid #ccc;
-
+    
+    img {
+        cursor: pointer;
+        max-height: 250px;
+        max-width: 250px;
+        border-radius: 2em;
+        margin: 1em;
+        flex-shrink: 1;
+        box-shadow: 1px 2px rgba(53, 52, 52, 0.144),
+            -0.2em 0 0.1em rgba(0, 0, 0, 0.192);
+        ;
+        transition: 1s;
+    }
+    
+    img:hover {
+        scale: 1.05;
+        transition: 0.5s;
+    }
+    
+    img:active {
+        scale: 1.12;
+        transition: 0.5s;
+    }
 }
+

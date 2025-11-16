@@ -1,0 +1,29 @@
+.logo {
+
+
+    h1 {
+        /* grid-area: logo; */
+        font-size: 5em;
+        transition: 0.5s;
+        position: relative;
+        margin-bottom: 0.2em;
+        margin-top: 0;
+
+    }
+
+    .logo-i {
+        font-size: 1.6em;
+        font-family: Mulish-Bold, serif;
+
+    }
+
+    .logo-t {
+        font-size: 1.6em;
+        font-family: Mulish-Regular, serif;
+
+    }
+
+    h1:hover {
+        transform: rotate(6deg);
+    }
+}

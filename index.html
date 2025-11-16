@@ -14,21 +14,25 @@
 
     <!-- Header -->
     <header class="header-container">
-        <h1 class="h1"> Meme<span class="logo-i">!</span><span class="logo-t">t</span></h1>
-        <button id="backBtn"><i class="fa-solid fa-rotate-left"></i></i></button>
-        <div class="search-container">
-            <input type="text" id="searchWord" placeholder="Search MEME" required>
-            <button id="searchBtn">
-                <search class="fa-solid fa-magnifying-glass"></search>
-            </button>
-            <button id="clearBtn">
-                <clear class="fa-solid fa-ban"></clear>
-            </button>
+        <div class="logo">
+            <h1 class="h1"> Meme<span class="logo-i">!</span><span class="logo-t">t</span></h1>
         </div>
-        <div class="topWords-container"></div>
+        <button id="backBtn"><i class="fa-solid fa-rotate-left"></i></i></button>
 
-        <div class="myMEME-container">MyMeme's</div>
+        <div class="main-nav-container">
+            <div class="search-container">
+                <input type="text" id="searchWord" placeholder="Search MEME" required>
+                <button id="searchBtn">
+                    <search class="fa-solid fa-magnifying-glass"></search>
+                </button>
+                <button id="clearBtn">
+                    <clear class="fa-solid fa-ban"></clear>
+                </button>
+            </div>
+            <div class="topWords-container"></div>
 
+            <div class="myMEME-container">MyMeme's</div>
+        </div>
     </header>
     <!-- Gallery -->
     <div class="gallery-container"> </div>
@@ -42,6 +46,7 @@
             <canvas id="meme-canvas" width="400" height="400"></canvas>
 
             <div class="generator-buttons">
+                <h1 class="title">Make your own!</h1>
                 <button id="colorBtn">
                     <input type="color" id="pickColor" value="#000000">
                     <i class="fa-solid fa-palette newColor"></i>
